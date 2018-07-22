@@ -32,7 +32,7 @@
 
 ## Test
 
-We use the bibw2992 as test example.
+We use the bibw2992 and an artificial dataset as test examples.
 
    
    
