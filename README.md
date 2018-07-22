@@ -24,4 +24,12 @@
    
    For Windows users, please change the src/Makevars to src/Makevars.win, the modification of compiler and linker option is similar to the Mac or Linux.
    
+3. The command below is recommended to build and install the package.
+```
+R CMD INSTALL --preclean --no-multiarch --with-keep.source rlobico
+```
+
+
+   
+   
    
