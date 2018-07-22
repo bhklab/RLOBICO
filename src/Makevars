@@ -1,0 +1,6 @@
+PKG_CFLAGS=-g -O2
+PKG_CXXFLAGS=-g -O2 -DIL_STD -std=c++11
+
+PKG_CPPFLAGS = -I/Applications/CPLEX_Studio128/cplex/include -I/Applications/CPLEX_Studio128/concert/include
+PKG_LDFLAGS = -L/Applications/CPLEX_Studio128/cplex/lib/x86-64_osx/static_pic -L/Applications/CPLEX_Studio128/concert/lib/x86-64_osx/static_pic
+PKG_LIBS = -L/Applications/CPLEX_Studio128/cplex/lib/x86-64_osx/static_pic -L/Applications/CPLEX_Studio128/concert/lib/x86-64_osx/static_pic -lilocplex -lconcert -lcplex -lm -lpthread 
