@@ -41,8 +41,39 @@
   - I have had to reinstall R, RTools and RStudio several times to ensure this error is not affecting the package
 - When compiling on Windows, the process fails on `lobico.cpp` with the error: 
     ```R
-
+    $ R CMD INSTALL --no-multiarch --with-keep.source --preclean rlobico_0.1.0.tar.gz
+    * installing to library 'C:/R/R-3.6.0/library'
+    * installing *source* package 'rlobico' ...
+    ** package 'rlobico' successfully unpacked and MD5 sums checked
+    ** using staged installation
+    ** libs
+    C:/Rtools/mingw_64/bin/g++  -I"C:/R/R-3.6.0/include" -DNDEBUG -I"C:/IBM/ILOG/CPLEX_Studio129/cplex
+    /include" -I"C:/IBM/ILOG/CPLEX_Studio129/concert/include" -I"C:/R/R-3.6.0/library/Rcpp/include"
+      -g -O2 -DIL_STD -std=c++0x   -O2 -Wall  -mtune=generic -c CNF_ILP_weak.cpp -o CNF_ILP_weak.o
+    C:/Rtools/mingw_64/bin/g++  -I"C:/R/R-3.6.0/include" -DNDEBUG -I"C:/IBM/ILOG/CPLEX_Studio129/cplex
+    /include" -I"C:/IBM/ILOG/CPLEX_Studio129/concert/include" -I"C:/R/R-3.6.0/library/Rcpp/include"
+      -g -O2 -DIL_STD -std=c++0x   -O2 -Wall  -mtune=generic -c DNF_ILP_weak.cpp -o DNF_ILP_weak.o
+    C:/Rtools/mingw_64/bin/g++  -I"C:/R/R-3.6.0/include" -DNDEBUG -I"C:/IBM/ILOG/CPLEX_Studio129/cplex
+    /include" -I"C:/IBM/ILOG/CPLEX_Studio129/concert/include" -I"C:/R/R-3.6.0/library/Rcpp/include"
+      -g -O2 -DIL_STD -std=c++0x   -O2 -Wall  -mtune=generic -c RcppExports.cpp -o RcppExports.o
+    C:/Rtools/mingw_64/bin/g++  -I"C:/R/R-3.6.0/include" -DNDEBUG -I"C:/IBM/ILOG/CPLEX_Studio129/cplex
+    /include" -I"C:/IBM/ILOG/CPLEX_Studio129/concert/include" -I"C:/R/R-3.6.0/library/Rcpp/include"
+      -g -O2 -DIL_STD -std=c++0x   -O2 -Wall  -mtune=generic -c cpp_lobico.cpp -o cpp_lobico.o
+    In file included from C:/IBM/ILOG/CPLEX_Studio129/concert/include/ilconcert/iloenv.h:21:0,
+                     from C:/IBM/ILOG/CPLEX_Studio129/concert/include/ilconcert/iloalg.h:21,
+                     from C:/IBM/ILOG/CPLEX_Studio129/concert/include/ilconcert/ilomodel.h:21,
+                     from C:/IBM/ILOG/CPLEX_Studio129/cplex/include/ilcplex/ilocplex.h:27,
+                     from cpp_lobico.cpp:8:
+    C:/IBM/ILOG/CPLEX_Studio129/concert/include/ilconcert/ilosys.h:262:21: fatal error: generic.h: No
+    such file or directory
+     #include "generic.h"
+                         ^
+    compilation terminated.
+    make: *** [C:/R/R-3.6.0/etc/x64/Makeconf:215: cpp_lobico.o] Error 1
+    ERROR: compilation failed for package 'rlobico'
+    * removing 'C:/R/R-3.6.0/library/rlobico'
     ```
+
 - The offending block of code is from `ilosys.h` in `concert/include/iloconcert`; it reads are follows:
   
     ```R
@@ -60,7 +91,13 @@
 - I attempted a work around by copying the function definition in the if condition into the else condition
   - This results in a number of different errors in other `.h` files; I assumed this means the code change broke the program
 - Based on research online the `generic.h` error is caused by use of a depricated make function in the g++ compiler
-
+- I have attempted to change the compiler used by RTools using:
+  - `PKG_CC`,`PKG_CXX` and `PKG_CXX11` specifying path to alternative compiler in `Makevars.win` of package `src` folder
+  - `CC`,`CXX` and `CXX11` specifying path to alternative compiler in `Makevars.win` of package `src` folder\
+  - `CC`,`CXX` and `CXX11` specifying path to alternative compiler in `Makevars.win` of `$HOME/.R` folder
+    - These are loaded as environmental variables into the terminal shell of RStudio
+    - Can see the using `R CMD config --all` or `R CMD config <var_name>`
+  - Replacing `g++.exe` in `C:\RTools\mingw_64\` with a symlink to other compilers, see below
 
 - I put together a hack (thanks Petr) where I tricked RTools into calling the Microsoft Visual Studio compiler with a symlink, but it turns out this is incompatible with Rcpp:
     
@@ -73,3 +110,9 @@
         Studio. Go complain to its vendor if you are still upset."
     - See [Rcpp-FAQ](https://mran.microsoft.com/snapshot/2014-11-17/web/packages/Rcpp/vignettes/Rcpp-FAQ.pdf)
 
+- From the Rcpp documentation it seems that RTools only provides support for c++0x, will try build using this command
+  - Didn't work
+- Currently looking for another compiler to test this with: best option would be `icc` from Intel, but this is proprietary
+  - Trying `clang++` for now
+
+- I am also currently testing defining `generic.h` in `C:/R/R-3.6.0/include`
