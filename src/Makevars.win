@@ -1,0 +1,6 @@
+PKG_CFLAGS=-g -O2
+PKG_CXXFLAGS=-g -O2 -DIL_STD -std=c++11
+
+PKG_CPPFLAGS = -I"C:/IBM/ILOG/CPLEX_Studio128/cplex/include" -I"C:/IBM/ILOG/CPLEX_Studio128/concert/include"
+PKG_LDFLAGS = -L"C:/IBM/ILOG/CPLEX_Studio128/cplex/lib/x64_windows_vs2017/stat_mda" -L"C:/IBM/ILOG/CPLEX_Studio128/concert/lib/x64_windows_vs2017/stat_mda"
+PKG_LIBS = -L"C:/IBM/ILOG/CPLEX_Studio128/cplex/lib/x64_windows_vs2017/stat_mda" -L"C:/IBM/ILOG/CPLEX_Studio128/concert/lib/x64_windows_vs2017/stat_mda" -lilocplex -lconcert -lcplex -lm -lpthread 
