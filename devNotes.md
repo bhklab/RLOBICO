@@ -110,9 +110,15 @@
         Studio. Go complain to its vendor if you are still upset."
     - See [Rcpp-FAQ](https://mran.microsoft.com/snapshot/2014-11-17/web/packages/Rcpp/vignettes/Rcpp-FAQ.pdf)
 
+- I have also tried using CPLEX 12.8 instead of 12.9, this made no difference to the error messages
+
 - From the Rcpp documentation it seems that RTools only provides support for c++0x, will try build using this command
   - Didn't work
 - Currently looking for another compiler to test this with: best option would be `icc` from Intel, but this is proprietary
   - Trying `clang++` for now
 
 - I am also currently testing defining `generic.h` in `C:/R/R-3.6.0/include`
+
+- I will attempt to configure one of `cplexAPI` or `Rcplex` packages on my R install
+  - Even if this works we still cannot use `concert`, just `cplex`
+  - Are there alternatives to `concert` for optimization?
