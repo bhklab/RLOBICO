@@ -32,7 +32,17 @@
 
 
 
-### Development Process So Far
+
+### Linux Development Process
+- Installed Ubuntu 18.04 to dual boot on my workstation
+- Set up the development environment and installed CPLEX, R, RStudio
+- Tested RLOBICO package: build and install are successful
+
+#### CRAN Check 1
+
+
+
+### Windows Development Process
 
 - RLOBICO is unable to install on the Windows platform
 - A co-worker (Wail) has reported that his install works correctly on MacOS, and I assume it will also work on Linux
@@ -122,3 +132,5 @@
 - I will attempt to configure one of `cplexAPI` or `Rcplex` packages on my R install
   - Even if this works we still cannot use `concert`, just `cplex`
   - Are there alternatives to `concert` for optimization?
+
+
