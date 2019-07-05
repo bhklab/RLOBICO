@@ -14,4 +14,6 @@ LaTeX: pdfLaTeX
 
 BuildType: Package
 PackageInstallArgs: --no-multiarch --with-keep.source --preclean
-PackageBuildArgs: --md5
+PackageBuildArgs: --md5 -resave-data
+PackageCheckArgs: --as-cran
+PackageRoxygenize: rd,collate,namespace

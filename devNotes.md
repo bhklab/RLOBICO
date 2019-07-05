@@ -2,6 +2,15 @@
 
 ## Windows Configuration
 
+- [RLOBICO](#RLOBICO)
+  - [Windows Configuration](#Windows-Configuration)
+    - [Downloading CPLEX](#Downloading-CPLEX)
+    - [Setting PATHS](#Setting-PATHS)
+    - [Environmental Configuration Troubleshoot](#Environmental-Configuration-Troubleshoot)
+  - [Linux Development Process](#Linux-Development-Process)
+    - [CRAN Check 1](#CRAN-Check-1)
+  - [Windows Development Process](#Windows-Development-Process)
+
 ### Downloading CPLEX
 - We had difficulty accessing the CPLEX academic initiative directly from the IBM home page
 - After much trial and error, we found this link: https://my15.digitalexperience.ibm.com/b73a5759-c6a6-4033-ab6b-d9d4f9a6d65b/dxsites/151914d1-03d2-48fe-97d9-d21166848e65/technology/data-science
@@ -33,16 +42,217 @@
 
 
 
-### Linux Development Process
+## Linux Development Process
 - Installed Ubuntu 18.04 to dual boot on my workstation
 - Set up the development environment and installed CPLEX, R, RStudio
 - Tested RLOBICO package: build and install are successful
 
-#### CRAN Check 1
+### CRAN Check 1
+
+**Errors**
+
+  ```R
+  * checking PDF version of manual without hyperrefs or index ... ERROR
+  Re-running with no redirection of stdout/stderr.
+  Hmm ... looks like a package
+  You may want to clean up by 'rm -Rf /tmp/RtmplQB7yC/Rd2pdf15bd2ec634f0'
+  ```
+  - Ran recommended command
+
+  ```R
+  * checking examples ... ERROR
+  Running examples in ‘rlobico-Ex.R’ failed
+  The error most likely occurred in:
+
+  > base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+  > ### Name: rcpp_hello
+  > ### Title: Hello, Rcpp!
+  > ### Aliases: rcpp_hello
+  > 
+  > ### ** Examples
+  > 
+  > rcpp_hello()
+  Error in rcpp_hello() : could not find function "rcpp_hello"
+  Execution halted
+  ```
+  - Deleted depricated man file `man/rcpp_hello.RD`
+
+
+**Warnings**
+
+  ```R
+  * checking DESCRIPTION meta-information ... WARNING
+  Non-standard license specification:
+  None
+  Standardizable: FALSE
+  ```
+  - Set `License: GPL-3` in `DESCRIPTION`
+
+  ```R
+  * checking Rd files ... WARNING
+  prepare_Rd: CNF_ILP_weak_cpp.Rd:7-9: Dropping empty section \description
+  prepare_Rd: CNF_ILP_weak_cpp.Rd:19-21: Dropping empty section \details
+  prepare_Rd: CNF_ILP_weak_cpp.Rd:22-28: Dropping empty section \value
+  prepare_Rd: CNF_ILP_weak_cpp.Rd:35-37: Dropping empty section \note
+  prepare_Rd: CNF_ILP_weak_cpp.Rd:32-34: Dropping empty section \author
+  prepare_Rd: CNF_ILP_weak_cpp.Rd:29-31: Dropping empty section \references
+  prepare_Rd: CNF_ILP_weak_cpp.Rd:41-43: Dropping empty section \seealso
+  checkRd: (5) CNF_ILP_weak_cpp.Rd:0-58: Must have a \description
+  prepare_Rd: DNF_ILP_weak_cpp.Rd:7-9: Dropping empty section \description
+  prepare_Rd: DNF_ILP_weak_cpp.Rd:19-21: Dropping empty section \details
+  prepare_Rd: DNF_ILP_weak_cpp.Rd:22-28: Dropping empty section \value
+  prepare_Rd: DNF_ILP_weak_cpp.Rd:35-37: Dropping empty section \note
+  prepare_Rd: DNF_ILP_weak_cpp.Rd:32-34: Dropping empty section \author
+  prepare_Rd: DNF_ILP_weak_cpp.Rd:29-31: Dropping empty section \references
+  prepare_Rd: DNF_ILP_weak_cpp.Rd:41-43: Dropping empty section \seealso
+  checkRd: (5) DNF_ILP_weak_cpp.Rd:0-58: Must have a \description
+  prepare_Rd: solve_by_cplex_cpp.Rd:7-9: Dropping empty section \description
+  prepare_Rd: solve_by_cplex_cpp.Rd:19-21: Dropping empty section \details
+  prepare_Rd: solve_by_cplex_cpp.Rd:22-28: Dropping empty section \value
+  prepare_Rd: solve_by_cplex_cpp.Rd:35-37: Dropping empty section \note
+  prepare_Rd: solve_by_cplex_cpp.Rd:32-34: Dropping empty section \author
+  prepare_Rd: solve_by_cplex_cpp.Rd:29-31: Dropping empty section \references
+  prepare_Rd: solve_by_cplex_cpp.Rd:41-43: Dropping empty section \seealso
+  checkRd: (5) solve_by_cplex_cpp.Rd:0-58: Must have a \description
+  ```
+  - Deleted all `man` files; will let `roxygen2` regenerate these
+
+  ```R
+  * checking for code/documentation mismatches ... WARNING
+  Functions or methods with usage in documentation object 'rcpp_hello' but not in code:
+    ‘rcpp_hello’
+
+  Codoc mismatches from documentation object 'CNF_ILP_weak_cpp':
+  CNF_ILP_weak_cpp
+    Code: function(X, Y, W, K, M, lambda, sens, spec, addcons)
+    Docs: function(x)
+    Argument names in code not in docs:
+      X Y W K M lambda sens spec addcons
+    Argument names in docs not in code:
+      x
+    Mismatches in argument names:
+      Position: 1 Code: X Docs: x
+
+  Codoc mismatches from documentation object 'DNF_ILP_weak_cpp':
+  DNF_ILP_weak_cpp
+    Code: function(X, Y, W, K, M, lambda, sens, spec, addcons)
+    Docs: function(x)
+    Argument names in code not in docs:
+      X Y W K M lambda sens spec addcons
+    Argument names in docs not in code:
+      x
+    Mismatches in argument names:
+      Position: 1 Code: X Docs: x
+
+  Codoc mismatches from documentation object 'solve_by_cplex_cpp':
+  solve_by_cplex_cpp
+    Code: function(my_obj, my_cons, my_rhs, my_lb, my_ub)
+    Docs: function(x)
+    Argument names in code not in docs:
+      my_obj my_cons my_rhs my_lb my_ub
+    Argument names in docs not in code:
+      x
+    Mismatches in argument names:
+      Position: 1 Code: my_obj Docs: x
+
+  ```
+  - Should be fixed by deleting old documentation
+
+
+  ```R
+  * checking Rd contents ... WARNING
+  Auto-generated content requiring editing in Rd object 'CNF_ILP_weak_cpp':
+    \keyword{~kwd1}
+    \keyword{~kwd2}
+
+  Auto-generated content requiring editing in Rd object 'DNF_ILP_weak_cpp':
+    \keyword{~kwd1}
+    \keyword{~kwd2}
+
+  Auto-generated content requiring editing in Rd object 'solve_by_cplex_cpp':
+    \keyword{~kwd1}
+    \keyword{~kwd2}
+  ```
+  - Again related to `man` files
+
+  ```R
+  * checking compilation flags in Makevars ... WARNING
+  Non-portable flags in variable 'PKG_CFLAGS':
+    -g -O2
+  Non-portable flags in variable 'PKG_CXXFLAGS':
+    -g -O2 -std=c++11
+  ```
+  - Commented out these two arguments in `Makevars`
+
+  ```R
+  * checking PDF version of manual ... WARNING
+  LaTeX errors when creating PDF version.
+  This typically indicates Rd problems.
+  ```
+  - Installed pandoc
+
+**Notes**
+
+
+  ```R
+  * checking CRAN incoming feasibility ... NOTE
+Maintainer: ‘The package maintainer <li1033889482@gmail.com>’
+
+New submission
+
+Non-FOSS package license (None)
+
+The Title field should be in title case. Current version is:
+‘R-LOBICO: an R package for building logical models’
+In title case that is:
+‘R-LOBICO: An R Package for Building Logical Models’
+
+The Description field should not start with the package name,
+  'This package' or similar.
+  ```
+  - Renamed package in title case
+  - Changed maintainer to Ben
+
+  ```R
+  * checking installed package size ... NOTE
+  installed size is 39.8Mb
+  sub-directories of 1Mb or more:
+    libs  39.7Mb
+  ```
+  - Added `--resave-data` build flag
+
+
+  ```R
+  * checking top-level files ... NOTE
+  Files ‘README.md’ or ‘NEWS.md’ cannot be checked without ‘pandoc’ being installed.
+  Non-standard files/directories found at top level:
+    ‘Makevars.win’ ‘devNotes.md’ ‘test’
+  ```
+  - Added these folders to `.rbuildignore`
+  - Will move test code into `R` directory
+
+
+  ```R
+  * checking compiled code ... NOTE
+  File ‘rlobico/libs/rlobico.so’:
+    Found ‘_ZSt4cout’, possibly from ‘std::cout’ (C++)
+      Objects: ‘CNF_ILP_weak.o’, ‘DNF_ILP_weak.o’
+
+  Compiled code should not call entry points which might terminate R nor
+  write to stdout/stderr instead of to the console, nor use Fortran I/O
+  nor system RNGs.
+
+  See ‘Writing portable packages’ in the ‘Writing R Extensions’ manual.
+  ```
+  - Remove print statements from C code
+
+
+  
 
 
 
-### Windows Development Process
+
+## Windows Development Process
 
 - RLOBICO is unable to install on the Windows platform
 - A co-worker (Wail) has reported that his install works correctly on MacOS, and I assume it will also work on Linux

@@ -9,7 +9,7 @@ PKG_CXXFLAGS=-g -O2 -DIL_STD -std=c++11
 
 
 # Ubuntu/Debian Variables
-PKG_CPPFLAGS = -I/opt/ibm/ILOG/CPLEX_Studio129/cplex/include -Icd
+PKG_CPPFLAGS = -I/opt/ibm/ILOG/CPLEX_Studio129/cplex/include -I/opt/ibm/ILOG/CPLEX_Studio129/concert/include
 PKG_LDFLAGS = -L/opt/ibm/ILOG/CPLEX_Studio129/cplex/lib/x86-64_linux/static_pic -L/opt/ibm/ILOG/CPLEX_Studio129/concert/lib/x86-64_linux/static_pic
 PKG_LIBS = -L/opt/ibm/ILOG/CPLEX_Studio129/cplex/lib/x86-64_linux/static_pic -L/opt/ibm/ILOG/CPLEX_Studio129/concert/lib/x86-64_linux/static_pic -lilocplex -lconcert -lcplex -lm -lpthread 
 
