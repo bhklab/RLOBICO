@@ -1,0 +1,23 @@
+Package: rlobico
+Type: Package
+Title: Fast Logical Models Implemented with IBM CPLEX
+Version: 0.1.0
+Author: Bo Li
+Maintainer: Benjamin Haibe-Kains <benjamin.haibe-kain@utoronto.ca>
+Description: Applies LOBICO model to large and complex datasets, formulates the logic mapping as an integer 
+  linear programming problem (ILP), and uses the advanced ILP solvers (IBM ILOG Cplex) to find the optimal mapping. The 
+  package is developed using R and C++, where the logic mapping formulation and Cplex Solver are implemented as separate 
+  files by C++ for performance gain and R functions are used as wrappers to call the C++ functions in the package. The 
+  speed performance of our open source package is optimized by tuning relevant parameters of Cplex Solver, which leads 
+  to a better performance than the standard Matlab package.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 3.6.0)
+Imports: Rcpp (>= 0.12.16), Matrix
+LinkingTo: Rcpp
+SystemRequirements: C++11, Rcpp
+RoxygenNote: 6.1.1
+NeedsCompilation: yes
+Packaged: 2019-07-09 20:55:03 UTC; chris
+Built: R 3.6.0; x86_64-pc-linux-gnu; 2019-07-09 20:55:40 UTC; unix

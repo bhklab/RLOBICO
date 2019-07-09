@@ -1,0 +1,250 @@
+Hmm ... looks like a package
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050)
+entering extended mode
+(Rd2.tex
+LaTeX2e <2018-12-01>
+
+(/home/chris/.miktex/texmfs/install/tex/latex/base/book.cls
+Document Class: book 2018/09/03 v1.4i Standard LaTeX document class
+(/home/chris/.miktex/texmfs/install/tex/latex/base/bk10.clo))
+(/usr/share/R/share/texmf/tex/latex/Rd.sty
+(/home/chris/.miktex/texmfs/install/tex/latex/base/ifthen.sty)
+======================================================================
+starting package maintenance...
+installation directory: /home/chris/.miktex/texmfs/install
+package repository: https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/
+package repository digest: ab5fc05a586a64482c53f90cbaa4df63
+going to download 5423537 bytes
+going to install 76 file(s) (1 package(s))
+downloading https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/tools.tar.lzma...
+5.42 MB, 664.25 Mbit/s
+extracting files from tools.tar.lzma...
+======================================================================
+
+(/home/chris/.miktex/texmfs/install/tex/latex/tools/longtable.sty)
+(/home/chris/.miktex/texmfs/install/tex/latex/tools/bm.sty)
+(/home/chris/.miktex/texmfs/install/tex/latex/base/alltt.sty)
+(/home/chris/.miktex/texmfs/install/tex/latex/tools/verbatim.sty)
+======================================================================
+starting package maintenance...
+installation directory: /home/chris/.miktex/texmfs/install
+package repository: https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/
+package repository digest: ab5fc05a586a64482c53f90cbaa4df63
+going to download 273472 bytes
+going to install 5 file(s) (1 package(s))
+downloading https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/url.tar.lzma...
+0.27 MB, 725.39 Mbit/s
+extracting files from url.tar.lzma...
+======================================================================
+
+(/home/chris/.miktex/texmfs/install/tex/latex/url/url.sty)
+(/home/chris/.miktex/texmfs/install/tex/latex/base/textcomp.sty
+(/home/chris/.miktex/texmfs/install/tex/latex/base/ts1enc.def
+(/home/chris/.miktex/texmfs/install/tex/latex/base/ts1enc.dfu)))
+======================================================================
+starting package maintenance...
+installation directory: /home/chris/.miktex/texmfs/install
+package repository: https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/
+package repository digest: ab5fc05a586a64482c53f90cbaa4df63
+going to download 89063 bytes
+going to install 119 file(s) (1 package(s))
+downloading https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/ae.tar.lzma...
+0.09 MB, 960.25 Mbit/s
+extracting files from ae.tar.lzma...
+======================================================================
+
+======================================================================
+starting package maintenance...
+installation directory: /home/chris/.miktex/texmfs/install
+package repository: https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/
+package repository digest: ab5fc05a586a64482c53f90cbaa4df63
+going to download 395818 bytes
+going to install 119 file(s) (1 package(s))
+downloading https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/psnfss.cab...
+0.40 MB, 852.60 Mbit/s
+extracting files from psnfss.cab...
+======================================================================
+
+(/home/chris/.miktex/texmfs/install/tex/latex/base/fontenc.sty
+(/home/chris/.miktex/texmfs/install/tex/latex/base/t1enc.def)
+======================================================================
+starting package maintenance...
+installation directory: /home/chris/.miktex/texmfs/install
+package repository: https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/
+package repository digest: ab5fc05a586a64482c53f90cbaa4df63
+going to download 289501 bytes
+going to install 1233 file(s) (1 package(s))
+downloading https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/ec.tar.lzma...
+0.29 MB, 1989.70 Mbit/s
+extracting files from ec.tar.lzma...
+======================================================================
+)
+(/home/chris/.miktex/texmfs/install/tex/latex/psnfss/times.sty)
+======================================================================
+starting package maintenance...
+installation directory: /home/chris/.miktex/texmfs/install
+package repository: https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/
+package repository digest: ab5fc05a586a64482c53f90cbaa4df63
+going to download 13560522 bytes
+going to install 1094 file(s) (1 package(s))
+downloading https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/lm.tar.lzma...
+13.56 MB, 1168.15 Mbit/s
+extracting files from lm.tar.lzma...
+======================================================================
+)
+(/home/chris/.miktex/texmfs/install/tex/latex/base/inputenc.sty)
+No file Rd2.aux.
+(/home/chris/.miktex/texmfs/install/tex/latex/base/ts1cmr.fd)
+(/home/chris/.miktex/texmfs/install/tex/latex/psnfss/t1ptm.fd)
+======================================================================
+starting package maintenance...
+installation directory: /home/chris/.miktex/texmfs/install
+package repository: https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/
+package repository digest: ab5fc05a586a64482c53f90cbaa4df63
+going to download 391735 bytes
+going to install 240 file(s) (1 package(s))
+downloading https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/times.cab...
+0.39 MB, 937.17 Mbit/s
+extracting files from times.cab...
+======================================================================
+
+(/home/chris/.miktex/texmfs/install/tex/latex/psnfss/t1pcr.fd)
+======================================================================
+starting package maintenance...
+installation directory: /home/chris/.miktex/texmfs/install
+package repository: https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/
+package repository digest: ab5fc05a586a64482c53f90cbaa4df63
+going to download 508571 bytes
+going to install 184 file(s) (1 package(s))
+downloading https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/courier.tar.lzma...
+0.51 MB, 866.02 Mbit/s
+extracting files from courier.tar.lzma...
+======================================================================
+
+Overfull \hbox (97.51955pt too wide) in paragraph at lines 25--25
+[]\T1/ptm/m/n/10 linear programming problem (ILP), and uses the advanced ILP so
+lvers (IBM ILOG Cplex) to find the optimal mapping. The  
+
+Overfull \hbox (97.79918pt too wide) in paragraph at lines 25--25
+[]\T1/ptm/m/n/10 package is developed using R and C++, where the logic mapping 
+formulation and Cplex Solver are implemented as separate  
+
+Overfull \hbox (69.85933pt too wide) in paragraph at lines 25--25
+[]\T1/ptm/m/n/10 files by C++ for performance gain and R functions are used as 
+wrappers to call the C++ functions in the package. The  
+
+Overfull \hbox (80.59953pt too wide) in paragraph at lines 25--25
+[]\T1/ptm/m/n/10 speed performance of our open source package is optimized by t
+uning relevant parameters of Cplex Solver, which leads  
+(/home/chris/.miktex/texmfs/install/tex/latex/psnfss/t1phv.fd)
+======================================================================
+starting package maintenance...
+installation directory: /home/chris/.miktex/texmfs/install
+package repository: https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/
+package repository digest: ab5fc05a586a64482c53f90cbaa4df63
+going to download 745459 bytes
+going to install 340 file(s) (1 package(s))
+downloading https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/helvetic.cab...
+0.75 MB, 899.77 Mbit/s
+extracting files from helvetic.cab...
+======================================================================
+
+No file Rd2.toc.
+
+======================================================================
+starting package maintenance...
+installation directory: /home/chris/.miktex/texmfs/install
+package repository: https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/
+package repository digest: ab5fc05a586a64482c53f90cbaa4df63
+going to download 4896571 bytes
+going to install 619 file(s) (1 package(s))
+downloading https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/amsfonts.tar.lzma...
+4.90 MB, 1147.21 Mbit/s
+extracting files from amsfonts.tar.lzma...
+======================================================================
+[1{/home/chris/.miktex/texmfs/data/pdftex/config/pdftex.map}] [2] [3] [4]
+[5] [6]
+Overfull \hbox (36.78088pt too wide) in paragraph at lines 339--339
+ []\T1/pcr/m/n/10 lobico(X, Y, K, M, solve, param, spec, sens, lambda, weak, po
+s, addcons)[] 
+[7] (Rd2.aux) )
+(see the transcript file for additional information)
+======================================================================
+starting package maintenance...
+installation directory: /home/chris/.miktex/texmfs/install
+package repository: https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/
+package repository digest: ab5fc05a586a64482c53f90cbaa4df63
+going to download 32074 bytes
+going to install 76 file(s) (1 package(s))
+downloading https://muug.ca/mirror/ctan/systems/win32/miktex/tm/packages/dvips.tar.lzma...
+0.03 MB, 379.57 Mbit/s
+extracting files from dvips.tar.lzma...
+======================================================================
+{/home/chris/.miktex/texmfs
+/install/fonts/enc/dvips/base/8r.enc}</home/chris/.miktex/texmfs/install/fonts/
+type1/urw/courier/ucrr8a.pfb></home/chris/.miktex/texmfs/install/fonts/type1/ur
+w/helvetic/uhvr8a.pfb></home/chris/.miktex/texmfs/install/fonts/type1/urw/times
+/utmb8a.pfb></home/chris/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pf
+b></home/chris/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb></home/c
+hris/.miktex/texmfs/install/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (7 pages, 78546 bytes).
+Transcript written on Rd2.log.
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050)
+entering extended mode
+(Rd2.tex
+LaTeX2e <2018-12-01>
+
+(/home/chris/.miktex/texmfs/install/tex/latex/base/book.cls
+Document Class: book 2018/09/03 v1.4i Standard LaTeX document class
+(/home/chris/.miktex/texmfs/install/tex/latex/base/bk10.clo))
+(/usr/share/R/share/texmf/tex/latex/Rd.sty
+(/home/chris/.miktex/texmfs/install/tex/latex/base/ifthen.sty)
+(/home/chris/.miktex/texmfs/install/tex/latex/tools/longtable.sty)
+(/home/chris/.miktex/texmfs/install/tex/latex/tools/bm.sty)
+(/home/chris/.miktex/texmfs/install/tex/latex/base/alltt.sty)
+(/home/chris/.miktex/texmfs/install/tex/latex/tools/verbatim.sty)
+(/home/chris/.miktex/texmfs/install/tex/latex/url/url.sty)
+(/home/chris/.miktex/texmfs/install/tex/latex/base/textcomp.sty
+(/home/chris/.miktex/texmfs/install/tex/latex/base/ts1enc.def
+(/home/chris/.miktex/texmfs/install/tex/latex/base/ts1enc.dfu)))
+(/home/chris/.miktex/texmfs/install/tex/latex/base/fontenc.sty
+(/home/chris/.miktex/texmfs/install/tex/latex/base/t1enc.def))
+(/home/chris/.miktex/texmfs/install/tex/latex/psnfss/times.sty))
+(/home/chris/.miktex/texmfs/install/tex/latex/base/inputenc.sty) (Rd2.aux)
+(/home/chris/.miktex/texmfs/install/tex/latex/base/ts1cmr.fd)
+(/home/chris/.miktex/texmfs/install/tex/latex/psnfss/t1ptm.fd)
+(/home/chris/.miktex/texmfs/install/tex/latex/psnfss/t1pcr.fd)
+Overfull \hbox (97.51955pt too wide) in paragraph at lines 25--25
+[]\T1/ptm/m/n/10 linear programming problem (ILP), and uses the advanced ILP so
+lvers (IBM ILOG Cplex) to find the optimal mapping. The  
+
+Overfull \hbox (97.79918pt too wide) in paragraph at lines 25--25
+[]\T1/ptm/m/n/10 package is developed using R and C++, where the logic mapping 
+formulation and Cplex Solver are implemented as separate  
+
+Overfull \hbox (69.85933pt too wide) in paragraph at lines 25--25
+[]\T1/ptm/m/n/10 files by C++ for performance gain and R functions are used as 
+wrappers to call the C++ functions in the package. The  
+
+Overfull \hbox (80.59953pt too wide) in paragraph at lines 25--25
+[]\T1/ptm/m/n/10 speed performance of our open source package is optimized by t
+uning relevant parameters of Cplex Solver, which leads  
+(/home/chris/.miktex/texmfs/install/tex/latex/psnfss/t1phv.fd) (Rd2.toc)
+[1{/home/chris/.miktex/texmfs/data/pdftex/config/pdftex.map}] [2] [3] [4]
+[5] [6]
+Overfull \hbox (36.78088pt too wide) in paragraph at lines 339--339
+ []\T1/pcr/m/n/10 lobico(X, Y, K, M, solve, param, spec, sens, lambda, weak, po
+s, addcons)[] 
+[7] (Rd2.aux) )
+(see the transcript file for additional information){/home/chris/.miktex/texmfs
+/install/fonts/enc/dvips/base/8r.enc}</home/chris/.miktex/texmfs/install/fonts/
+type1/urw/courier/ucrr8a.pfb></home/chris/.miktex/texmfs/install/fonts/type1/ur
+w/helvetic/uhvr8a.pfb></home/chris/.miktex/texmfs/install/fonts/type1/urw/times
+/utmb8a.pfb></home/chris/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pf
+b></home/chris/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb></home/c
+hris/.miktex/texmfs/install/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (7 pages, 78817 bytes).
+Transcript written on Rd2.log.
+Saving output to ‘rlobico-manual.pdf’ ...
+Done
+You may want to clean up by 'rm -Rf /tmp/RtmpRblrpA/Rd2pdf1f99d1a1bc'

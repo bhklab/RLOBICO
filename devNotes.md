@@ -9,6 +9,8 @@
     - [Environmental Configuration Troubleshoot](#Environmental-Configuration-Troubleshoot)
   - [Linux Development Process](#Linux-Development-Process)
     - [CRAN Check 1](#CRAN-Check-1)
+    - [CRAN Check 2](#CRAN-Check-2)
+    - [CRAN Check 3: Checking in Terminal](#CRAN-Check-3-Checking-in-Terminal)
   - [Windows Development Process](#Windows-Development-Process)
 
 ### Downloading CPLEX
@@ -58,6 +60,7 @@
   You may want to clean up by 'rm -Rf /tmp/RtmplQB7yC/Rd2pdf15bd2ec634f0'
   ```
   - Ran recommended command
+  - Added `--preclean` flag to `R CMD INSTALL`
 
   ```R
   * checking examples ... ERROR
@@ -220,6 +223,7 @@ The Description field should not start with the package name,
     libs  39.7Mb
   ```
   - Added `--resave-data` build flag
+  - Didn't work, will need to at importFrom calls to decrease size
 
 
   ```R
@@ -245,9 +249,117 @@ The Description field should not start with the package name,
   See ‘Writing portable packages’ in the ‘Writing R Extensions’ manual.
   ```
   - Remove print statements from C code
+  - Replaced `std::cout` with `Rcpp::Rcout` in above listed files.
+  ```
+
+### CRAN Check 2
+
+**Errors**
+
+None!
+
+**Warnings**
+
+```R
+❯ checking dependencies in R code ... WARNING
+  'library' or 'require' call not declared from: ‘Matrix’
+  'library' or 'require' call to ‘Matrix’ in package code.
+    Please use :: or requireNamespace() instead.
+    See section 'Suggested packages' in the 'Writing R Extensions' manual.
+```
+
+```R
+❯ checking for missing documentation entries ... WARNING
+  Undocumented code objects:
+    ‘CNF_CPLEX’ ‘CNF_CPLEX_weak_pos’ ‘CNF_ILP_weak’ ‘CNF_ILP_weak_cpp’
+    ‘CNF_ILP_weak_pos’ ‘DNF_CPLEX’ ‘DNF_CPLEX_weak_pos’ ‘DNF_ILP_weak’
+    ‘DNF_ILP_weak_cpp’ ‘DNF_ILP_weak_pos’ ‘bibw2992’ ‘lobico’
+    ‘solve_by_cplex_cpp’
+  Undocumented data sets:
+    ‘bibw2992’
+  All user-level objects in a package should have documentation entries.
+  See chapter ‘Writing R documentation files’ in the ‘Writing R
+  Extensions’ manual.
+
+```
 
 
-  
+**Notes**
+
+```R
+❯ checking installed package size ... NOTE
+    installed size is 39.9Mb
+    sub-directories of 1Mb or more:
+      libs  39.7Mb
+```
+
+```R
+❯ checking top-level files ... NOTE
+  Non-standard files/directories found at top level:
+    ‘devNotes.md’ ‘rlobico_0.1.0.tar.gz’
+```
+- Will delete these for CRAN release
+
+```R
+  CNF_CPLEX: no visible global function definition for ‘c<-’
+  CNF_CPLEX: no visible binding for global variable ‘P’
+  CNF_CPLEX_weak_pos: no visible global function definition for ‘c<-’
+  CNF_CPLEX_weak_pos: no visible binding for global variable ‘P’
+  CNF_ILP_weak: no visible global function definition for ‘sparseMatrix’
+  CNF_ILP_weak_pos: no visible global function definition for ‘c<-’
+  CNF_ILP_weak_pos: no visible binding for global variable ‘P’
+  CNF_ILP_weak_pos: no visible global function definition for ‘sparse’
+  DNF_CPLEX: no visible global function definition for ‘c<-’
+  DNF_CPLEX: no visible binding for global variable ‘P’
+  DNF_CPLEX_weak_pos: no visible global function definition for ‘c<-’
+  DNF_CPLEX_weak_pos: no visible binding for global variable ‘P’
+  DNF_ILP_weak: no visible global function definition for ‘sparseMatrix’
+  DNF_ILP_weak_pos: no visible global function definition for ‘c<-’
+  DNF_ILP_weak_pos: no visible binding for global variable ‘P’
+  DNF_ILP_weak_pos: no visible global function definition for ‘sparse’
+  lobico: no visible binding for global variable ‘sense’
+  lobico: no visible global function definition for ‘sparseMatrix’
+  Undefined global functions or variables:
+    P c<- sense sparse sparseMatrix
+```
+
+### CRAN Check 3: Checking in Terminal
+
+**Warnings**
+
+```R
+* checking PDF version of manual ... WARNING
+LaTeX errors when creating PDF version.
+This typically indicates Rd problems.
+```
+- Going to delete man files are regenerate with Roxygen2
+
+```R
+* checking for code which exercises the package ... WARNING
+No examples, no tests, no vignettes
+```
+- Writing examples and vignettes
+
+**Notes**
+
+```R
+* checking installed package size ... NOTE
+  installed size is 39.9Mb
+  sub-directories of 1Mb or more:
+    libs  39.7Mb
+```
+-Stack Overlflow indicates this is an acceptable note and common for packages compiled from C
+
+```R
+* checking CRAN incoming feasibility ... NOTE
+Maintainer: ‘Benjamin Haibe-Kains <benjamin.haibe-kain@utoronto.ca>’
+
+New submission
+```
+- No need to correct his
+
+
+
 
 
 

@@ -1,6 +1,5 @@
 # OS Independent settings
-PKG_CFLAGS=-g -O2
-PKG_CXXFLAGS=-g -O2 -DIL_STD -std=c++11
+PKG_CXXFLAGS= -DIL_STD
 
 
 ## Uncomment the environmental variables for your OS
