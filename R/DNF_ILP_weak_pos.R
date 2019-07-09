@@ -2,6 +2,10 @@
 #'
 #' A function that excecutes some part of a logical model that I don't know about
 #'
+#' @examples 
+#' test <- 2 +2
+#' test
+#'
 #' @param X A matrix
 #' @param Y A binary matrix of logical cateogorizations
 #' @param W Some parameters
@@ -13,6 +17,9 @@
 #' @param addcons Some stuff
 #'
 #' @importFrom Matrix sparseMatrix
+#' @useDynLib rlobico 
+#'
+#' @return 
 #'
 #' @export
 #'

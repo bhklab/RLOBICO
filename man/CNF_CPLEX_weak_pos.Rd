@@ -11,7 +11,7 @@ CNF_CPLEX_weak_pos(X, Y, W, K, M, lambda, sens, spec, addcons)
 
 \item{Y}{A N x 1 binary vector, which is the binarized version of the continuous output variable}
 
-\item{W}{A N x 1 continous vector with weghts for each version of the continuous output variable}
+\item{W}{A N x 1 continous vector with weights for each version of the continuous output variable}
 
 \item{K}{A model parameter}
 
@@ -27,4 +27,9 @@ CNF_CPLEX_weak_pos(X, Y, W, K, M, lambda, sens, spec, addcons)
 }
 \description{
 An R helper function implemented as a wrapper for underlying C code
+}
+\examples{
+test <- 2 +2
+test
+
 }

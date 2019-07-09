@@ -2,6 +2,10 @@
 #'
 #' A wrapper for implementing C functions for calculating logical models
 #' 
+#' @examples 
+#' test <- 2 +2
+#' test
+#' 
 #' @param X A data matrix
 #' @param Y A binary matrix of logical categorizations
 #' @param K A parameter
@@ -16,6 +20,7 @@
 #' @param addcons Some other stuff
 #' 
 #' @import Matrix Rcpp
+#' @useDynLib rlobico _rlobico_CNF_ILP_weak_cpp _rlobico_DNF_ILP_weak_cpp _rlobico_solve_by_cplex_cpp
 #'
 #' @export
 #'

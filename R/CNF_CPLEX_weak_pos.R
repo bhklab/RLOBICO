@@ -2,9 +2,13 @@
 #'
 #' An R helper function implemented as a wrapper for underlying C code
 #'
+#' @examples
+#' test <- 2 +2
+#' test
+#'
 #' @param X A N x P binary matrix with N samples characterized by P binary features
 #' @param Y A N x 1 binary vector, which is the binarized version of the continuous output variable
-#' @param W A N x 1 continous vector with weghts for each version of the continuous output variable
+#' @param W A N x 1 continous vector with weights for each version of the continuous output variable
 #' @param K A model parameter
 #' @param M A model parameter
 #' @param lambda A model parameter

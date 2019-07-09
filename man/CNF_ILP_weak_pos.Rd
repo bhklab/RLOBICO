@@ -28,3 +28,8 @@ CNF_ILP_weak_pos(X, Y, W, K, M, lambda, sens, spec, addcons)
 \description{
 A function that excecutes some part of a logical model that I don't know about
 }
+\examples{
+test <- 2 +2
+test
+
+}

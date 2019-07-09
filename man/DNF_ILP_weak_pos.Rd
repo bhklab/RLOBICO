@@ -25,6 +25,14 @@ DNF_ILP_weak_pos(X, Y, W, K, M, lambda, sens, spec, addcons)
 
 \item{addcons}{Some stuff}
 }
+\value{
+
+}
 \description{
 A function that excecutes some part of a logical model that I don't know about
+}
+\examples{
+test <- 2 +2
+test
+
 }

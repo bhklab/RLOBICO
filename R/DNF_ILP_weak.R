@@ -2,6 +2,10 @@
 #'
 #' A function that excecutes some part of a logical model that I don't know about
 #'
+#' @examples 
+#' test <- 2 +2
+#' test
+#'
 #' @param X A matrix
 #' @param Y A binary matrix of logical cateogorizations
 #' @param W Some parameters
@@ -86,7 +90,7 @@ DNF_ILP_weak <- function(X, Y, W, K, M, lambda, sens, spec, addcons) {
       NoZ <- NoZ + K * 2 * length(addcons[c, 1])
     }
   }
-
+  
   #make index variables for sparse matrix
   I <- matrix(0, nrow = NoZ, ncol = 1)
   J <- matrix(0, nrow = NoZ, ncol = 1)
