@@ -1,3 +1,13 @@
+#' Get Lobico Model Solution
+#'
+#' Input model parameters and output result
+#'
+#' @param x
+#' @param K
+#' @param M
+#' @param P
+#'
+#' @export
 .getsolution <- function(x, K, M, P) {
   
   if (K > M) {
