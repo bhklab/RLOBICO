@@ -15,6 +15,9 @@
 
 \item{P}{Parameters}
 }
+\value{
+The solution to the lobico model
+}
 \description{
 Input model parameters and output result
 }

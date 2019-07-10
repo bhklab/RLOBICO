@@ -26,7 +26,7 @@ DNF_ILP_weak_pos(X, Y, W, K, M, lambda, sens, spec, addcons)
 \item{addcons}{Some stuff}
 }
 \value{
-
+What ever this function returns (a logical model)?
 }
 \description{
 A function that excecutes some part of a logical model that I don't know about

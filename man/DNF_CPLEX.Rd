@@ -25,6 +25,9 @@ DNF_CPLEX(X, Y, W, K, M, lambda, sens, spec, addcons)
 
 \item{addcons}{Some stuff}
 }
+\value{
+Whatever this function returns
+}
 \description{
 A function that excecutes some part of a logical model that I don't know about
 }

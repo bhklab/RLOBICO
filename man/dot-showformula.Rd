@@ -15,6 +15,9 @@
 
 \item{X1}{Some parameter}
 }
+\value{
+What ever this function returns
+}
 \description{
 Displays the lobico formula used in the logical model
 }

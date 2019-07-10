@@ -18,6 +18,8 @@
 #'
 #' @importFrom Matrix sparseMatrix
 #' 
+#' @return What ever this function returns
+#' 
 #' @export
 #'
 DNF_ILP_weak <- function(X, Y, W, K, M, lambda, sens, spec, addcons) {

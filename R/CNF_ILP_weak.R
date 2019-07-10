@@ -16,7 +16,9 @@
 #' @param spec Some more parmaters
 #' @param addcons Some stuff
 #'
-#' @import Matrix
+#' @return Whate ver this function returns
+#'
+#' @importFrom Matrix sparseMatrix
 #' 
 #' @export
 #'

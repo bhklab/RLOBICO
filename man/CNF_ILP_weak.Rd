@@ -25,6 +25,9 @@ CNF_ILP_weak(X, Y, W, K, M, lambda, sens, spec, addcons)
 
 \item{addcons}{Some stuff}
 }
+\value{
+Whate ver this function returns
+}
 \description{
 A function that excecutes some part of a logical model that I don't know about
 }

@@ -2,6 +2,7 @@
 title: "Using The Lobico Function"
 author:
 - "Bo Li"
+- "Wail Ba-Alawi"
 - "Christopher Eeles"
 - "Benjamin Haibe-Kains"
 date: "09/07/2019"
@@ -23,9 +24,10 @@ Please write an introduction about the package and its use cases.
 
 ## Installing the Package
 
-Please note that installation of this file depends on the package Rcpp to compile the C code. Additionally, to use the package and its function you must have a working installation of IBM ILOG CPLEX.
+Please note that installation of this file depends on the package Rcpp to compile the C code. Additionally, to use the package and its function you must have a working installation of IBM ILOG CPLEX 12.9
 
 ```{r Installation}
+library(devtools)
 devtools::install_github("bhklab/RLOBICO", ref="RLOBICO_CRAN")
 library(rlobico)
 ```

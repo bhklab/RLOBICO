@@ -16,7 +16,7 @@
 #' @param spec Some more parmaters
 #' @param addcons Some stuff
 #'
-#' @import Matrix
+#' @return What ever this function returns
 #'
 #' @export
 #'

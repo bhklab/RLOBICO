@@ -18,8 +18,8 @@
 #'
 #' @importFrom Matrix sparseMatrix
 #' @useDynLib rlobico
-#'
-#' @return 
+#' 
+#' @return What ever this function returns (a logical model)?
 #'
 #' @export
 #'

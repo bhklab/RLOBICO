@@ -16,6 +16,8 @@
 #' @param spec Some more parmaters
 #' @param addcons Some stuff
 #'
+#' @return Whatever this function returns
+#'
 #' @export
 #'
 DNF_CPLEX <- function(X, Y, W, K, M, lambda, sens, spec, addcons) {

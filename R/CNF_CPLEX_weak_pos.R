@@ -16,6 +16,8 @@
 #' @param spec The minimum specificity
 #' @param addcons Some additional parameters
 #' 
+#' @return What ever this function returns
+#' 
 #' @export
 #'
 CNF_CPLEX_weak_pos <- function(X, Y, W, K, M, lambda, sens, spec, addcons) {

@@ -7,6 +7,8 @@
 #' @param M Some parameter
 #' @param X1 Some parameter
 #' 
+#' @return What ever this function returns
+#' 
 #' @export
 #'
 .showformula <- function(SolMat, K, M, X1) {

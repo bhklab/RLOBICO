@@ -16,6 +16,8 @@
 #' @param spec Some more parmaters
 #' @param addcons Some stuff
 #' 
+#' @return What ever this function returns
+#' 
 #' @export
 #'
 DNF_CPLEX_weak_pos <- function(X, Y, W, K, M, lambda, sens, spec, addcons) {

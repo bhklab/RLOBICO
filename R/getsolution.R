@@ -6,6 +6,8 @@
 #' @param K Parameters
 #' @param M Parameters
 #' @param P Parameters
+#' 
+#' @return The solution to the lobico model
 #'
 #' @export
 #' 

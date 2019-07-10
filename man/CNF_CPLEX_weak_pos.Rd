@@ -25,6 +25,9 @@ CNF_CPLEX_weak_pos(X, Y, W, K, M, lambda, sens, spec, addcons)
 
 \item{addcons}{Some additional parameters}
 }
+\value{
+What ever this function returns
+}
 \description{
 An R helper function implemented as a wrapper for underlying C code
 }

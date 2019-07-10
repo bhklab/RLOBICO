@@ -22,6 +22,8 @@
 #' @import Matrix Rcpp
 #' @useDynLib rlobico _rlobico_CNF_ILP_weak_cpp _rlobico_DNF_ILP_weak_cpp _rlobico_solve_by_cplex_cpp
 #'
+#' @return What ever this function returns
+#'
 #' @export
 #'
 lobico <- function(X, Y, K, M, solve, param, spec, sens, lambda, weak, pos, addcons) {
