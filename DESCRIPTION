@@ -4,6 +4,7 @@ Title: Fast Logical Models Implemented with IBM CPLEX
 Version: 0.1.0
 Authors@R: c(
   person("Li","Bo", email="li1033889482@gmail.com", role=c("aut")),
+  person("Ba-alawi", "Wail", email ="Wail.ba-alawi@uhnresearch.ca" , role=c("aut")),
   person("Eeles","Christopher", email="christopher.eeles@uhnresearch.ca", role=c("aut")),
   person("Haibe-Kains","Benjamin", email = "benjamin.haibe.kains@utoronto.ca", role = c("aut","cre"))
   )
@@ -19,7 +20,7 @@ LazyData: true
 Depends: R (>= 3.6.0)
 Imports: Rcpp (>= 0.12.16), Matrix
 LinkingTo: Rcpp
-SystemRequirements: C++11, Rcpp
+SystemRequirements: C++11, Rcpp, IBM ILOG CPLEX 12.9
 RoxygenNote: 6.1.1
 Suggests: knitr, rmarkdown, devtools
 VignetteBuilder: knitr

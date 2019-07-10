@@ -80,8 +80,6 @@
   ```
   - Deleted depricated man file `man/rcpp_hello.RD`
 
-Testt
-
 **Warnings**
 
   ```R
@@ -334,6 +332,11 @@ LaTeX errors when creating PDF version.
 This typically indicates Rd problems.
 ```
 - Going to delete man files are regenerate with Roxygen2
+  - Didn't work
+- Removed `--preclean` flag
+  - Didn't work
+- Was missing font packages
+  - Resolved with `sudo apt install texinfo` then restart RStudio
 
 ```R
 * checking for code which exercises the package ... WARNING
@@ -358,6 +361,7 @@ Maintainer: ‘Benjamin Haibe-Kains <benjamin.haibe-kain@utoronto.ca>’
 New submission
 ```
 - No need to correct his
+
 
 
 
@@ -456,4 +460,5 @@ New submission
   - Even if this works we still cannot use `concert`, just `cplex`
   - Are there alternatives to `concert` for optimization?
 
-
+- Best solution at this point seems to be using Microsoft R to submit RLOBICO to MRAN (the Microsoft version of CRAN)
+- Will investigate further once Linux and MacOS packages are done

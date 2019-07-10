@@ -3,6 +3,7 @@ knitr::opts_chunk$set(echo = TRUE)
 require(devtools)
 
 ## ----Installation--------------------------------------------------------
+library(devtools)
 devtools::install_github("bhklab/RLOBICO", ref="RLOBICO_CRAN")
 library(rlobico)
 
