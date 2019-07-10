@@ -80,6 +80,8 @@
   ```
   - Deleted depricated man file `man/rcpp_hello.RD`
 
+Test
+
 **Warnings**
 
   ```R
