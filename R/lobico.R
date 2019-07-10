@@ -28,7 +28,7 @@ lobico <- function(X, Y, K, M, solve, param, spec, sens, lambda, weak, pos, addc
   
   ##Set undefined input arguments to default settings
   if (missing(solve) || is.na(solve) || !is.numeric(solve)) {solve <- 1}
-  if (missing(param) || is.na(param)) {param <- list(nrow = 0, ncol = 3)}
+  if (missing(param) || any(is.na(param))) {param <- list(nrow = 0, ncol = 3)}
   if (missing(spec) || is.na(spec) || !is.numeric(spec)) {spec <- 0}
   if (missing(sens) || is.na(sens) || !is.numeric(sens)) {sens <- 0}
   if (missing(lambda) || is.na(lambda) || !is.numeric(lambda)) {lambda <- 0}
