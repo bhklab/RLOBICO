@@ -31,6 +31,9 @@ lobico(X, Y, K, M, solve, param, spec, sens, lambda, weak, pos, addcons)
 
 \item{addcons}{Some other stuff}
 }
+\value{
+What ever this function returns
+}
 \description{
 A wrapper for implementing C functions for calculating logical models
 }
