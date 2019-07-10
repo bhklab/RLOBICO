@@ -1,12 +1,12 @@
 ---
 title: "Using The Lobico Function"
 author:
-- Bo Li
-- Christopher Eeles
-- Benjamin Haibe-Kains
+- "Bo Li"
+- "Christopher Eeles"
+- "Benjamin Haibe-Kains"
 date: "09/07/2019"
 output: pdf_document
-vignette:
+vignette: >
   %\VignetteIndexEntry{Using The Lobico Function} 
   %\VignetteEngine{knitr::rmarkdown} 
   %\VignetteEncoding{UTF-8}
