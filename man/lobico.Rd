@@ -35,7 +35,7 @@ lobico(X, Y, K, M, solve, param, spec, sens, lambda, weak, pos, addcons)
 A wrapper for implementing C functions for calculating logical models
 }
 \examples{
-test <- 2 +2
+test <- (2 + 2)
 test
 
 }
