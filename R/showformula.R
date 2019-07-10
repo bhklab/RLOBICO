@@ -1,3 +1,14 @@
+#' Show the Lobico Formula
+#'
+#' Displays the lobico formula used in the logical model
+#'
+#' @param SolMat Some parameter
+#' @param K Some parameter
+#' @param M Some parameter
+#' @param X1 Some parameter
+#' 
+#' @export
+#'
 .showformula <- function(SolMat, K, M, X1) {
   
   if (missing('X1')) {

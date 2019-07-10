@@ -2,12 +2,13 @@
 #'
 #' Input model parameters and output result
 #'
-#' @param x
-#' @param K
-#' @param M
-#' @param P
+#' @param x Parmeters
+#' @param K Parameters
+#' @param M Parameters
+#' @param P Parameters
 #'
 #' @export
+#' 
 .getsolution <- function(x, K, M, P) {
   
   if (K > M) {
