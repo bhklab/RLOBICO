@@ -17,7 +17,7 @@
 #' @param addcons Some stuff
 #'
 #' @importFrom Matrix sparseMatrix
-#' @useDynLib rlobico 
+#' @useDynLib rlobico
 #'
 #' @return 
 #'

@@ -17,4 +17,4 @@ PackageInstallArgs: --no-multiarch --with-keep.source --preclean
 PackageBuildArgs: --resave-data --md5
 PackageBuildBinaryArgs: --resave-data --md5
 PackageCheckArgs: --as-cran
-PackageRoxygenize: rd,collate,namespace
+PackageRoxygenize: rd,collate,namespace,vignette

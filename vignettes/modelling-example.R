@@ -1,40 +1,12 @@
----
-title: "Using The Lobico Function"
-author:
-- Bo Li
-- Christopher Eeles
-- Benjamin Haibe-Kains
-date: "09/07/2019"
-output: pdf_document
-vignette: |
-  %\VignetteIndexEntry{Using The Lobico Function} 
-  %\VignetteEngine{knitr::rmarkdown} 
-  %\VignetteEncoding{UTF-8}
----
-
-```{r setup, include=FALSE}
+## ----setup, include=FALSE------------------------------------------------
 knitr::opts_chunk$set(echo = TRUE)
 require(devtools)
-```
 
-## Introduction
-
-Please write an introduction about the package and its use cases.
-
-## Installing the Package
-
-Please note that installation of this file depends on the package Rcpp to compile the C code. Additionally, to use the package and its function you must have a working installation of IBM ILOG CPLEX.
-
-```{r Installation}
+## ----Installation--------------------------------------------------------
 devtools::install_github("bhklab/RLOBICO", ref="RLOBICO_CRAN")
 library(rlobico)
-```
 
-## Data Loading
-
-Please describe the data being used, as well as the meaing of each column accessed for this example.
-
-```{r dataLoading}
+## ----dataLoading---------------------------------------------------------
 load("../data/bibw2992.RData")
 MutationMatrix <- bibw2992
 Samples <- MutationMatrix$Cell.lines
@@ -42,13 +14,8 @@ IC50s <- MutationMatrix$BIBW2992
 MutationMatrix <- MutationMatrix[, -2:-1]
 Features <- colnames(MutationMatrix)
 rownames(MutationMatrix) <- Samples
-```
 
-## Configuring Parameters
-
-Write some stuff about this. Feel free to merge and rename code blocks as you see fit.
-
-```{r Configuring Parameters}
+## ----Configuring Parameters----------------------------------------------
 ## Create binary input, output, and weight vector
 
 #binary input
@@ -74,14 +41,8 @@ W[Y != 1] <- -(FPN * W[Y != 1] / sum(W[Y != 1]))
 ## Logic model complexity
 K <- 2
 M <- 1
-```
 
-
-## CPLEX Options
-
-Notes about configuring the options for CPLEX and the use cases for each configuration.
-
-```{r Cplex Options}
+## ----Cplex Options-------------------------------------------------------
 ## Cplex options
 # param <- rbind(list('timelimit.Cur', 60000, 'MaxTime'), #Maximum time for IP )in seconds)
 #                list('mipltolerances.integrality.Cur', 1e-5, 'Integrality'), #Integrality constraint; default = 1e-5 (see cplex.Param.mip.tolerances.integrality.Help)
@@ -115,13 +76,8 @@ param <- lapply(1:ncol(param), function(x){
   
 })
 param <- data.frame("V1" = param[[1]], "V2" = param[[2]], "V3" = param[[3]])
-```
 
-## CPLEX Solver
-
-Explaning the parameters and function of lobico.
-
-```{r Cplex Solver}
+## ----Cplex Solver--------------------------------------------------------
 ## Cplex solver
 sol <- lobico(X = X,
               Y = W,
@@ -129,13 +85,8 @@ sol <- lobico(X = X,
               M = M,
               solve = 1,
               param = param)
-```
 
-## Validating Results
-
-Some comments about the package.
-
-```{r Checking Solution}
+## ----Checking Solution---------------------------------------------------
 ## Check solution
 print('********************')
 solMat <- .getsolution(sol, K, M, P)
@@ -143,4 +94,4 @@ print(solMat)
 str <- .showformula(solMat, K, M, Features)
 print('Inferred logical model')
 print(str)
-```
+

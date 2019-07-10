@@ -7,7 +7,13 @@
 .showformula(SolMat, K, M, X1)
 }
 \arguments{
-\item{X1}{}
+\item{SolMat}{Some parameter}
+
+\item{K}{Some parameter}
+
+\item{M}{Some parameter}
+
+\item{X1}{Some parameter}
 }
 \description{
 Displays the lobico formula used in the logical model

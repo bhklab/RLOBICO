@@ -3,7 +3,7 @@
 #' A wrapper for implementing C functions for calculating logical models
 #' 
 #' @examples 
-#' test <- 2 +2
+#' test <- (2 + 2)
 #' test
 #' 
 #' @param X A data matrix
@@ -38,10 +38,10 @@ lobico <- function(X, Y, K, M, solve, param, spec, sens, lambda, weak, pos, addc
   
   ## Formulate problem
   if (K <= M) {
-    if (pos == 1) {
+    if (pos == TRUE) {
       CPLEXStuff <- DNF_ILP_weak_pos(X, as.double(Y > 0), abs(Y), K, M, lambda, sens, spec, addcons)
     } else {
-      if (weak == 1) {
+      if (weak == TRUE) {
         #CPLEXStuff <- DNF_ILP_weak(X, as.double(Y > 0), abs(Y), K, M, lambda, sens, spec, addcons)
         #sourceCpp("DNF_ILP_weak.cpp")
         CPLEXStuff <- DNF_ILP_weak_cpp(X, as.double(Y > 0), abs(Y), K, M, lambda, sens, spec, addcons)
@@ -51,10 +51,10 @@ lobico <- function(X, Y, K, M, solve, param, spec, sens, lambda, weak, pos, addc
       }
     }
   } else {
-    if (pos == 1) {
+    if (pos == TRUE) {
       CPLEXStuff <- CNF_ILP_weak_pos(X, as.double(Y > 0), abs(Y), M, K, lambda, sens, spec, addcons)
     } else {
-      if (weak == 1) {
+      if (weak == TRUE) {
         #CPLEXStuff <- CNF_ILP_weak(X, as.double(Y > 0), abs(Y), M, K, lambda, sens, spec, addcons)
         #install.packages("Rcpp", repos = "https://cran.r-project.org")
         #sourceCpp("CNF_ILP_weak.cpp")
