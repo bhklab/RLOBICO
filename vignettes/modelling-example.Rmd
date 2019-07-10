@@ -33,7 +33,7 @@ library(rlobico)
 ```
 
 ## Data Loading
-
+  
 Please describe the data being used, as well as the meaing of each column accessed for this example.
 
 ```{r dataLoading}
