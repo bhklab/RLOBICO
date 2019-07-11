@@ -20,11 +20,27 @@ require(devtools)
 
 ## Introduction
 
-R-LOBICO is an R package that aims to provide implementations of several logical models algorithms. In the field of cancer biomarker discovery, where models suffer from high dimensionality of the molecular data and the low number of samples, single predictor models are in general not accurate enough, reflecting the importance of acknowledging the interaction between biological features. On the other hand, some machine learning approaches produce complex multi-predictor models that are more accurate but hard to interpret and not amenable to the generation of hypotheses. Logical models satisfies the urgent need for approaches that builds small, interpretable, yet accurate models which capture the interplay between biological features. LOBICO, namely Logic Optimization for Binary Input to Continuous Output, is one computational approach that was applied on a large pharmacogenomic dataset to find robust candidate biomarkers. The package applies LOBICO model to large and complex datasets, formulates the logic mapping as an integer linear programming problem (ILP), and uses the advanced ILP solvers (IBM ILOG Cplex) to find the optimal mapping.
+R-LOBICO is an R package that aims to provide implementations of several logical
+models algorithms. In the field of cancer biomarker discovery, where models 
+suffer from high dimensionality of the molecular data and the low number of 
+samples, single predictor models are in general not accurate enough, reflecting 
+the importance of acknowledging the interaction between biological features. On 
+the other hand, some machine learning approaches produce complex multi-predictor 
+models that are more accurate but hard to interpret and not amenable to the 
+generation of hypotheses. Logical models satisfies the urgent need for 
+approaches that builds small, interpretable, yet accurate models which capture 
+the interplay between biological features. LOBICO, namely Logic Optimization for
+Binary Input to Continuous Output, is one computational approach that was 
+applied on a large pharmacogenomic dataset to find robust candidate biomarkers. 
+The package applies LOBICO model to large and complex datasets, formulates the 
+logic mapping as an integer linear programming problem (ILP), and uses the 
+advanced ILP solvers (IBM ILOG Cplex) to find the optimal mapping.
 
 ## Installing the Package
 
-Please note that installation of this file depends on the package Rcpp to compile the C code. Additionally, to use the package and its function you must have a working installation of IBM ILOG CPLEX 12.9
+Please note that installation of this file depends on the package Rcpp to 
+compile the C code. Additionally, to use the package and its function you must 
+have a working installation of IBM ILOG CPLEX 12.9
 
 ```{r Installation}
 library(devtools)
@@ -34,7 +50,8 @@ library(rlobico)
 
 ## Data Loading
   
-Load the real data example. In this example we load the responses of applying bibw2992 drug in pharmacogenomic datasets.
+Load the real data example. In this example we load the responses of applying 
+bibw2992 drug in pharmacogenomic datasets.
 
 ```{r dataLoading}
 load("../data/bibw2992.RData")
@@ -78,17 +95,6 @@ M <- 1
 Notes about configuring the options for CPLEX and the use cases for each configuration.
 
 ```{r Cplex Options}
-## Cplex options
-# param <- rbind(list('timelimit.Cur', 60000, 'MaxTime'), #Maximum time for IP )in seconds)
-#                list('mipltolerances.integrality.Cur', 1e-5, 'Integrality'), #Integrality constraint; default = 1e-5 (see cplex.Param.mip.tolerances.integrality.Help)
-#                list('mip.tolerancs.mipgap.Cur', 1e-4, 'RelGap'), #Optimality gap tolerance; default = 1e-4 (0.01% of optimal solution, set to 0.05, 5% for early termination, approximate solution) (see cplex.Param.mip.tolerances.mipgap.Help)
-#                list('threads.Cur', 8, 'Threads'), #Number of threads to use (default = 0, automatic) (see cplex.Param.threads.Help)
-#                list('parallel.Cur', -1, 'ParallelMode'), #Parallel optimization mode, -1 = opportunistic 0 = automatic 1 = deterministic (see plex.Param.parallel.Help)
-#                list('mip.pool.relgap.Cur', 1e-1, 'Pool_relgap'), #Relative gap for suboptimal solutions in the pool; default 0.1 (10%)
-#                list('mip.pool.intensity.Cur', 1, 'Pool_intensity'), #Pool intensity; default 1 = mild: generate few solutions quickly (see cplex.Param.mip.pool.intensity.Help)
-#                list('mip.pool.replace.Cur', 2, 'Pool_replace'), #Pool replacement strategy; default 2 = replace least diverse solutions (see cplex.Param.mip.pool.replace.Help)
-#                list('mip.pool.capacity.Cur', 11, 'Pool_capacity'), #Pool capacity; default 11 = best + 10 (see cplex.Param.mip.pool.replace.Help)
-#                list('mip.limits.populate.Cur', 11, 'Pool_size'))#Number of solutions generated; default 11 = best + 10 (see cplex.Param.mip.limits.populate.Help)
 param <- rbind(list('tilim', 60000, 'MaxTime'), #Maximum time for IP )in seconds)
                list('mipltolerances.integrality.Cur', 1e-5, 'Integrality'), #Integrality constraint; default = 1e-5 (see cplex.Param.mip.tolerances.integrality.Help)
                list('epgap', 1e-4, 'RelGap'), #Optimality gap tolerance; default = 1e-4 (0.01% of optimal solution, set to 0.05, 5% for early termination, approximate solution) (see cplex.Param.mip.tolerances.mipgap.Help)
