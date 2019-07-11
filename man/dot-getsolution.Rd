@@ -7,16 +7,16 @@
 .getsolution(x, K, M, P)
 }
 \arguments{
-\item{x}{Parmeters}
+\item{x}{The  matrix}
 
-\item{K}{Parameters}
+\item{K}{The number of disjunctive terms}
 
-\item{M}{Parameters}
+\item{M}{The maximum number of selected features per disjunctive term}
 
-\item{P}{Parameters}
+\item{P}{The number of rows of solution matrix}
 }
 \value{
-The solution to the lobico model
+The solution matrix to the lobico model
 }
 \description{
 Input model parameters and output result

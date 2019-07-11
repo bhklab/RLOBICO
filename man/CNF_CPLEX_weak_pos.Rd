@@ -7,23 +7,23 @@
 CNF_CPLEX_weak_pos(X, Y, W, K, M, lambda, sens, spec, addcons)
 }
 \arguments{
-\item{X}{A N x P binary matrix with N samples characterized by P binary features}
+\item{X}{An N x P binary matrix with N samples characterized by P binary features}
 
-\item{Y}{A N x 1 binary vector, which is the binarized version of the continuous output variable}
+\item{Y}{An N x 1 binary vector, which is the binarized version of the continuous output variable}
 
-\item{W}{A N x 1 continous vector with weights for each version of the continuous output variable}
+\item{W}{An N x 1 continuous vector with weights for each of the N samples}
 
-\item{K}{A model parameter}
+\item{K}{The number of disjunctive terms}
 
-\item{M}{A model parameter}
+\item{M}{The maximum number of selected features per disjunctive term}
 
-\item{lambda}{A model parameter}
+\item{lambda}{The regularizer of penalty for model complexity}
 
-\item{sens}{The minimum sensitivity}
+\item{sens}{The constraints on minimum sensitivity}
 
-\item{spec}{The minimum specificity}
+\item{spec}{The constraints on minimum specificity}
 
-\item{addcons}{Some additional parameters}
+\item{addcons}{Some additional constraints}
 }
 \value{
 What ever this function returns

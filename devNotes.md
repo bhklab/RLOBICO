@@ -364,8 +364,12 @@ New submission
 - No need to correct his
 
 ### Configuration
-- Added `configure`, `configure.ac`, `Makevars.in` and `Makevars.win` from `BoLi` branch of `RLOBICO`
-- Testing that the package still compiles
+- Added `configure`, `configure.ac`, `Makevars.in` and `Makevars.win` from `boli` branch of `RLOBICO`
+- Testing that the package still compiles; it does not
+- `dnl` Command is not recognized; made sure `autoconf` was installed and up to date
+- Changed `dnl` to `#` for all lines above `AC_INIT`; returns `./configure: 29: ./configure: Syntax error: word unexpected (expecting ")")`
+
+
 
 
 
