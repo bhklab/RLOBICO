@@ -7,8 +7,7 @@
 #' test
 #' 
 #' @param X An N x P binary matrix with N samples characterized by P binary features
-#' @param Y An N x 1 binary vector, which is the binarized version of the continuous output variable
-#' @param W An N x 1 continuous vector with weights for each of the N samples
+#' @param Y An N x 1 continuous vector with weights for each of the N samples
 #' @param K The number of disjunctive terms
 #' @param M The maximum number of selected features per disjunctive term
 #' @param lambda The regularizer of penalty for model complexity

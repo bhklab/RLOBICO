@@ -5,7 +5,7 @@
 #' @param SolMat The solution matrix
 #' @param K The number of disjunctive terms
 #' @param M The maximum number of selected features per disjunctive term
-#' @param X1 The parameter matrix
+#' @param X1 The features matrix
 #' 
 #' @return The string represents the solution
 #' 
