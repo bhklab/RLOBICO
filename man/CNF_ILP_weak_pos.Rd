@@ -7,23 +7,23 @@
 CNF_ILP_weak_pos(X, Y, W, K, M, lambda, sens, spec, addcons)
 }
 \arguments{
-\item{X}{A matrix}
+\item{X}{An N x P binary matrix with N samples characterized by P binary features}
 
-\item{Y}{A binary matrix of logical cateogorizations}
+\item{Y}{An N x 1 binary vector, which is the binarized version of the continuous output variable}
 
-\item{W}{Some parameters}
+\item{W}{An N x 1 continuous vector with weights for each of the N samples}
 
-\item{K}{Some parameters}
+\item{K}{The number of disjunctive terms}
 
-\item{M}{Some parameters}
+\item{M}{The maximum number of selected features per disjunctive term}
 
-\item{lambda}{A parameter}
+\item{lambda}{The regularizer of penalty for model complexity}
 
-\item{sens}{A parameter}
+\item{sens}{The constraints on minimum sensitivity}
 
-\item{spec}{Some more parmaters}
+\item{spec}{The constraints on minimum specificity}
 
-\item{addcons}{Some stuff}
+\item{addcons}{Some additional constraints}
 }
 \value{
 Whatever this function returns

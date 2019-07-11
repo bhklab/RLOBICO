@@ -14,7 +14,7 @@ LaTeX: pdfLaTeX
 
 BuildType: Package
 PackageInstallArgs: --no-multiarch --with-keep.source
-PackageBuildArgs: --resave-data --md5
-PackageBuildBinaryArgs: --resave-data --md5
-PackageCheckArgs: --as-cran
-PackageRoxygenize: rd,collate,namespace,vignette
+PackageBuildArgs: --resave-data --md5 --no-build-vignettes
+PackageBuildBinaryArgs: --resave-data --md5 --no-build-vignettes
+PackageCheckArgs: --as-cran --no-build-vignettes
+PackageRoxygenize: rd,collate,namespace

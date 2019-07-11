@@ -7,16 +7,16 @@
 .showformula(SolMat, K, M, X1)
 }
 \arguments{
-\item{SolMat}{Some parameter}
+\item{SolMat}{The solution matrix}
 
-\item{K}{Some parameter}
+\item{K}{The number of disjunctive terms}
 
-\item{M}{Some parameter}
+\item{M}{The maximum number of selected features per disjunctive term}
 
-\item{X1}{Some parameter}
+\item{X1}{The features matrix}
 }
 \value{
-What ever this function returns
+The string represents the solution
 }
 \description{
 Displays the lobico formula used in the logical model

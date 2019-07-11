@@ -4,35 +4,31 @@
 \alias{lobico}
 \title{Lobico help function}
 \usage{
-lobico(X, Y, K, M, solve, param, spec, sens, lambda, weak, pos, addcons)
+lobico(X, Y, K, M, spec, sens, lambda, weak, pos, addcons)
 }
 \arguments{
-\item{X}{A data matrix}
+\item{X}{An N x P binary matrix with N samples characterized by P binary features}
 
-\item{Y}{A binary matrix of logical categorizations}
+\item{Y}{An N x 1 continuous vector with weights for each of the N samples}
 
-\item{K}{A parameter}
+\item{K}{The number of disjunctive terms}
 
-\item{M}{A parameter}
+\item{M}{The maximum number of selected features per disjunctive term}
 
-\item{solve}{A parameter}
+\item{spec}{The constraints on minimum specificity}
 
-\item{param}{A parameter}
+\item{sens}{The constraints on minimum sensitivity}
 
-\item{spec}{A parameter}
+\item{lambda}{The regularizer of penalty for model complexity}
 
-\item{sens}{A parameter}
+\item{weak}{The parameter about whether to formulate weaker logic model}
 
-\item{lambda}{A parameter}
+\item{pos}{The parameter about whether to return quick and dirty solutions to disallow negations, i.e. only positive}
 
-\item{weak}{A parameter}
-
-\item{pos}{A parameter}
-
-\item{addcons}{Some other stuff}
+\item{addcons}{Some additional constraints}
 }
 \value{
-What ever this function returns
+
 }
 \description{
 A wrapper for implementing C functions for calculating logical models
