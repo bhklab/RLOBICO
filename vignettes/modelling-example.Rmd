@@ -20,7 +20,7 @@ require(devtools)
 
 ## Introduction
 
-Please write an introduction about the package and its use cases.
+R-LOBICO is an R package that aims to provide implementations of several logical models algorithms. In the field of cancer biomarker discovery, where models suffer from high dimensionality of the molecular data and the low number of samples, single predictor models are in general not accurate enough, reflecting the importance of acknowledging the interaction between biological features. On the other hand, some machine learning approaches produce complex multi-predictor models that are more accurate but hard to interpret and not amenable to the generation of hypotheses. Logical models satisfies the urgent need for approaches that builds small, interpretable, yet accurate models which capture the interplay between biological features. LOBICO, namely Logic Optimization for Binary Input to Continuous Output, is one computational approach that was applied on a large pharmacogenomic dataset to find robust candidate biomarkers. The package applies LOBICO model to large and complex datasets, formulates the logic mapping as an integer linear programming problem (ILP), and uses the advanced ILP solvers (IBM ILOG Cplex) to find the optimal mapping.
 
 ## Installing the Package
 
@@ -34,7 +34,7 @@ library(rlobico)
 
 ## Data Loading
   
-Please describe the data being used, as well as the meaing of each column accessed for this example.
+Load the real data example. In this example we load the responses of applying bibw2992 drug in pharmacogenomic datasets.
 
 ```{r dataLoading}
 load("../data/bibw2992.RData")
@@ -48,7 +48,7 @@ rownames(MutationMatrix) <- Samples
 
 ## Configuring Parameters
 
-Write some stuff about this. Feel free to merge and rename code blocks as you see fit.
+Configure the parameters to formulate the logical model
 
 ```{r Configuring Parameters}
 ## Create binary input, output, and weight vector
@@ -121,21 +121,19 @@ param <- data.frame("V1" = param[[1]], "V2" = param[[2]], "V3" = param[[3]])
 
 ## CPLEX Solver
 
-Explaning the parameters and function of lobico.
+Build the logical model and launch the CPLEX solver
 
-```{r Cplex Solver}
+```{Cplex Solver}
 ## Cplex solver
 sol <- lobico(X = X,
               Y = W,
               K = K,
-              M = M,
-              solve = 1,
-              param = param)
+              M = M)
 ```
 
 ## Validating Results
 
-Some comments about the package.
+Return and validate the results. 
 
 ```{r Checking Solution}
 ## Check solution
