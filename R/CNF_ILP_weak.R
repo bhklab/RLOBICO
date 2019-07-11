@@ -305,7 +305,6 @@ CNF_ILP_weak <- function(X, Y, W, K, M, lambda, sens, spec, addcons) {
     }
   }
   
-  #cons <- sparse(I, J, Q, NoC, NoV, NoZ)
   cons <- Matrix::sparseMatrix(i = as.vector(I),
                        j = as.vector(J),
                        x = as.vector(Q),

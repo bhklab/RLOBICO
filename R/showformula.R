@@ -48,14 +48,12 @@
     M <- Ktemp
     
     str <- NULL
-    # str <- matrix(NULL)
     for (k in 1:K) {
       pos <- which(SolMat[k, ] != 0)
       for (p in 1:length(pos)) {
         if (SolMat[k, pos[p]] == -1) {
           str <- paste0(str, '~')
         }
-        #str <- paste(str, X1[[pos[p]]])
         str <- paste0(str, X1[[pos[p]]], ' ')
         if (p != length(pos)) {
           str <- paste0(str, ' | ')

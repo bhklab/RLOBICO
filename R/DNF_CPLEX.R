@@ -98,7 +98,6 @@ DNF_CPLEX <- function(X, Y, W, K, M, lambda, sens, spec, addcons) {
       PosSet <- which(X[n, ] == 1)
       NegSet <- which(X[n, ] == 0)
       cons[conr + (k - 1) * N + n, c(2 * P * K + (k - 1) * N + n, P * K + (k - 1) * P + PosSet, (k - 1) * P + NegSet)] <- -1
-      #cons[conr + (k - 1) * N + n, 2 * P * K + (k - 1) * N + n] <- 1
       consub[conr + (k - 1) * N + n] <- -1
     }
   }

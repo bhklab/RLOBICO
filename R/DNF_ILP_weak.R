@@ -300,10 +300,6 @@ DNF_ILP_weak <- function(X, Y, W, K, M, lambda, sens, spec, addcons) {
                        x = as.vector(Q),
                        dims = c(NoC, NoV))
   print("aaaaaaaaa---------------------------------------------------")
-  #print(dim(lb))
-  #print(dim(as.matrix(cons)))
-  #print(dim(optfun))
   
-
   return(list(optfun, cons, consub, lb, ub, ctype))
 }

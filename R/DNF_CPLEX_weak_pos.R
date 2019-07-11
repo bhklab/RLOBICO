@@ -74,8 +74,6 @@ DNF_CPLEX_weak_pos <- function(X, Y, W, K, M, lambda, sens, spec, addcons) {
   print('Constructing constraint 1...')
   for (p in 1:P) {
     for(k in 1:K) {
-      #cons[conr + (k - 1) * P + p, c((k - 1) * P + p, P * K + (k - 1) * P + p)] <- 1
-      #
       consub[conr + (k - 1) * P + p, P * K + (k - 1) * P + p] <- 1
       consub[conr + (k - 1) * P + p] <- 0
     }
