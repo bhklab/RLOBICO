@@ -4,7 +4,7 @@
 \alias{lobico}
 \title{Lobico help function}
 \usage{
-lobico(X, Y, K, M, spec, sens, lambda, weak, pos, addcons)
+lobico(X, Y, K, M, solve, param, spec, sens, lambda, weak, pos, addcons)
 }
 \arguments{
 \item{X}{An N x P binary matrix with N samples characterized by P binary features}
@@ -14,6 +14,10 @@ lobico(X, Y, K, M, spec, sens, lambda, weak, pos, addcons)
 \item{K}{The number of disjunctive terms}
 
 \item{M}{The maximum number of selected features per disjunctive term}
+
+\item{solve}{A parameter}
+
+\item{param}{Some parameters}
 
 \item{spec}{The constraints on minimum specificity}
 
@@ -28,13 +32,26 @@ lobico(X, Y, K, M, spec, sens, lambda, weak, pos, addcons)
 \item{addcons}{Some additional constraints}
 }
 \value{
-
+Return the solution matrix
 }
 \description{
 A wrapper for implementing C functions for calculating logical models
 }
 \examples{
 data(bibw2992)
+MutationMatrix <- bibw2992
+IC50s <- MutationMatrix$BIBW2992
+MutationMatrix <- MutationMatrix[, -2:-1]
 
+th <- 0.5
+X <- MutationMatrix
+Y <- as.double(IC50s < th)
+W <- abs(IC50s - th)
+
+K <- 2
+M <- 1
+
+# Build the solver
+sol <- lobico(X = X, Y = W, K = K, M = M)
 
 }

@@ -3,8 +3,23 @@
 #' A wrapper for implementing C functions for calculating logical models
 #' 
 #' @examples 
-#' test <- (2 + 2)
-#' test
+#' data(bibw2992)
+#' MutationMatrix <- bibw2992
+#' IC50s <- MutationMatrix$BIBW2992
+#' MutationMatrix <- MutationMatrix[, -2:-1]
+#'
+# binarization threshold th
+#' th <- 0.5
+#' X <- MutationMatrix
+#' Y <- as.double(IC50s < th)
+#' W <- abs(IC50s - th)
+#'
+# logical model complexity
+#' K <- 2
+#' M <- 1
+#'
+#' # Build the solver
+#' sol <- lobico(X = X, Y = W, K = K, M = M)
 #' 
 #' @param X An N x P binary matrix with N samples characterized by P binary features
 #' @param Y An N x 1 continuous vector with weights for each of the N samples

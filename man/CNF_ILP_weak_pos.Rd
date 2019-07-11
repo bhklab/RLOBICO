@@ -31,8 +31,3 @@ Whatever this function returns
 \description{
 A function that excecutes some part of a logical model that I don't know about
 }
-\examples{
-test <- 2 +2
-test
-
-}

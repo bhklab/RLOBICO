@@ -2,10 +2,6 @@
 #'
 #' A function that excecutes some part of a logical model that I don't know about
 #'
-#' @examples
-#' test <- 2 +2
-#' test
-#'
 #' @param X An N x P binary matrix with N samples characterized by P binary features
 #' @param Y An N x 1 binary vector, which is the binarized version of the continuous output variable
 #' @param W An N x 1 continuous vector with weights for each of the N samples
@@ -19,8 +15,6 @@
 #' @return Whate ver this function returns
 #'
 #' @importFrom Matrix sparseMatrix
-#' 
-#' @export
 #'
 CNF_ILP_weak <- function(X, Y, W, K, M, lambda, sens, spec, addcons) {
   

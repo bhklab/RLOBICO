@@ -31,8 +31,3 @@ What ever this function returns
 \description{
 An R helper function implemented as a wrapper for underlying C code
 }
-\examples{
-test <- 2 +2
-test
-
-}

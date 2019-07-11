@@ -2,10 +2,6 @@
 #'
 #' An R helper function implemented as a wrapper for underlying C code
 #'
-#' @examples
-#' test <- 2 +2
-#' test
-#'
 #' @param X An N x P binary matrix with N samples characterized by P binary features
 #' @param Y An N x 1 binary vector, which is the binarized version of the continuous output variable
 #' @param W An N x 1 continuous vector with weights for each of the N samples
@@ -17,8 +13,6 @@
 #' @param addcons Some additional constraints 
 #' 
 #' @return What ever this function returns
-#' 
-#' @export
 #'
 CNF_CPLEX_weak_pos <- function(X, Y, W, K, M, lambda, sens, spec, addcons) {
   
