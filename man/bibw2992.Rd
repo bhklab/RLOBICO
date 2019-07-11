@@ -9,6 +9,7 @@
 bibw2992
 }
 \description{
-bibw2992 is a dataset used to power the examples run in this package
+bibw2992 is a dataset used to power the examples run in this package. It contains
+the mutation matrix for the tyrosine kinase inhibitor Afatinib (Gilotrif)
 }
 \keyword{datasets}
