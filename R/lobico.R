@@ -3,27 +3,15 @@
 #' A wrapper for implementing C functions for calculating logical models
 #' 
 #' @examples 
-#' # Suppose the target column is named "target"
-#' data <- load("bibw2992.Rdata")
-#' target <- data$target
-#' 
-#' # binarization threshold th
-#' th <- 0.5
-#' X <- data
-#' Y <- as.double(target < th)
-#' W <- abs(target - th)
-#' 
-#' # logical model complexity
-#' K <- 2
-#' M <- 1
-#' 
-#' # Build the solver
-#' sol <- lobico(X = X, Y = W, K = K, M = M)
+#' test <- (2 + 2)
+#' test
 #' 
 #' @param X An N x P binary matrix with N samples characterized by P binary features
 #' @param Y An N x 1 continuous vector with weights for each of the N samples
 #' @param K The number of disjunctive terms
 #' @param M The maximum number of selected features per disjunctive term
+#' @param solve A parameter
+#' @param param Some parameters
 #' @param lambda The regularizer of penalty for model complexity
 #' @param sens The constraints on minimum sensitivity 
 #' @param spec The constraints on minimum specificity
@@ -38,9 +26,11 @@
 #' 
 #' @export
 #'
-lobico <- function(X, Y, K, M, spec, sens, lambda, weak, pos, addcons) {
+lobico <- function(X, Y, K, M, solve, param, spec, sens, lambda, weak, pos, addcons) {
   
   ##Set undefined input arguments to default settings
+  if (missing(solve) || is.na(solve) || !is.numeric(solve)) {solve <- 1}
+  if (missing(param) || any(is.na(param))) {param <- list(nrow = 0, ncol = 3)}
   if (missing(spec) || is.na(spec) || !is.numeric(spec)) {spec <- 0}
   if (missing(sens) || is.na(sens) || !is.numeric(sens)) {sens <- 0}
   if (missing(lambda) || is.na(lambda) || !is.numeric(lambda)) {lambda <- 0}
