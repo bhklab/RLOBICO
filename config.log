@@ -28,7 +28,6 @@ uname -v = #26~18.04.1-Ubuntu SMP Thu Jun 27 07:28:31 UTC 2019
 /bin/universe          = unknown
 
 PATH: /home/chris/bin
-PATH: /home/chris/bin
 PATH: /usr/local/sbin
 PATH: /usr/local/bin
 PATH: /usr/sbin
