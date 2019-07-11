@@ -3,8 +3,22 @@
 #' A wrapper for implementing C functions for calculating logical models
 #' 
 #' @examples 
-#' data(bibw2992)
+#' # Suppose the target column is named "target"
+#' data <- load("bibw2992.Rdata")
+#' target <- data$target
 #' 
+#' # binarization threshold th
+#' th <- 0.5
+#' X <- data
+#' Y <- as.double(target < th)
+#' W <- abs(target - th)
+#' 
+#' # logical model complexity
+#' K <- 2
+#' M <- 1
+#' 
+#' # Build the solver
+#' sol <- lobico(X = X, Y = W, K = K, M = M)
 #' 
 #' @param X An N x P binary matrix with N samples characterized by P binary features
 #' @param Y An N x 1 continuous vector with weights for each of the N samples
@@ -20,8 +34,8 @@
 #' @import Matrix Rcpp
 #' @useDynLib rlobico _rlobico_CNF_ILP_weak_cpp _rlobico_DNF_ILP_weak_cpp _rlobico_solve_by_cplex_cpp
 #'
-#' @return 
-#'
+#' @return Return the solution matrix
+#' 
 #' @export
 #'
 lobico <- function(X, Y, K, M, spec, sens, lambda, weak, pos, addcons) {
