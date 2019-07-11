@@ -6,15 +6,15 @@
 #' test <- 2 +2
 #' test
 #'
-#' @param X A matrix
-#' @param Y A binary matrix of logical cateogorizations
-#' @param W Some parameters
-#' @param K Some parameters
-#' @param M Some parameters
-#' @param lambda A parameter
-#' @param sens A parameter
-#' @param spec Some more parmaters
-#' @param addcons Some stuff
+#' @param X An N x P binary matrix with N samples characterized by P binary features
+#' @param Y An N x 1 binary vector, which is the binarized version of the continuous output variable
+#' @param W An N x 1 continuous vector with weights for each of the N samples
+#' @param K The number of disjunctive terms
+#' @param M The maximum number of selected features per disjunctive term
+#' @param lambda The regularizer of penalty for model complexity
+#' @param sens The constraints on minimum sensitivity 
+#' @param spec The constraints on minimum specificity
+#' @param addcons Some additional constraints 
 #'
 #' @importFrom Matrix sparseMatrix
 #' 

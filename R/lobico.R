@@ -6,31 +6,28 @@
 #' test <- (2 + 2)
 #' test
 #' 
-#' @param X A data matrix
-#' @param Y A binary matrix of logical categorizations
-#' @param K A parameter
-#' @param M A parameter
-#' @param solve A parameter
-#' @param param A parameter 
-#' @param spec A parameter
-#' @param sens A parameter
-#' @param lambda A parameter
-#' @param weak A parameter
-#' @param pos A parameter
-#' @param addcons Some other stuff
+#' @param X An N x P binary matrix with N samples characterized by P binary features
+#' @param Y An N x 1 binary vector, which is the binarized version of the continuous output variable
+#' @param W An N x 1 continuous vector with weights for each of the N samples
+#' @param K The number of disjunctive terms
+#' @param M The maximum number of selected features per disjunctive term
+#' @param lambda The regularizer of penalty for model complexity
+#' @param sens The constraints on minimum sensitivity 
+#' @param spec The constraints on minimum specificity
+#' @param addcons Some additional constraints 
+#' @param weak The parameter about whether to formulate weaker logic model
+#' @param pos The parameter about whether to return quick and dirty solutions to disallow negations, i.e. only positive
 #' 
 #' @import Matrix Rcpp
 #' @useDynLib rlobico _rlobico_CNF_ILP_weak_cpp _rlobico_DNF_ILP_weak_cpp _rlobico_solve_by_cplex_cpp
 #'
-#' @return What ever this function returns
+#' @return 
 #'
 #' @export
 #'
-lobico <- function(X, Y, K, M, solve, param, spec, sens, lambda, weak, pos, addcons) {
+lobico <- function(X, Y, K, M, spec, sens, lambda, weak, pos, addcons) {
   
   ##Set undefined input arguments to default settings
-  if (missing(solve) || is.na(solve) || !is.numeric(solve)) {solve <- 1}
-  if (missing(param) || any(is.na(param))) {param <- list(nrow = 0, ncol = 3)}
   if (missing(spec) || is.na(spec) || !is.numeric(spec)) {spec <- 0}
   if (missing(sens) || is.na(sens) || !is.numeric(sens)) {sens <- 0}
   if (missing(lambda) || is.na(lambda) || !is.numeric(lambda)) {lambda <- 0}

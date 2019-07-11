@@ -2,12 +2,12 @@
 #'
 #' Input model parameters and output result
 #'
-#' @param x Parmeters
-#' @param K Parameters
-#' @param M Parameters
-#' @param P Parameters
+#' @param x The  matrix
+#' @param K The number of disjunctive terms
+#' @param M The maximum number of selected features per disjunctive term
+#' @param P The number of rows of solution matrix
 #' 
-#' @return The solution to the lobico model
+#' @return The solution matrix to the lobico model
 #'
 #' @export
 #' 

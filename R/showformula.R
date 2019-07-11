@@ -2,12 +2,12 @@
 #'
 #' Displays the lobico formula used in the logical model
 #'
-#' @param SolMat Some parameter
-#' @param K Some parameter
-#' @param M Some parameter
-#' @param X1 Some parameter
+#' @param SolMat The solution matrix
+#' @param K The number of disjunctive terms
+#' @param M The maximum number of selected features per disjunctive term
+#' @param X1 The parameter matrix
 #' 
-#' @return What ever this function returns
+#' @return The string represents the solution
 #' 
 #' @export
 #'
