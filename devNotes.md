@@ -11,6 +11,7 @@
     - [CRAN Check 1](#CRAN-Check-1)
     - [CRAN Check 2](#CRAN-Check-2)
     - [CRAN Check 3: Checking in Terminal](#CRAN-Check-3-Checking-in-Terminal)
+    - [Configuration](#Configuration)
   - [Windows Development Process](#Windows-Development-Process)
 
 ### Downloading CPLEX
@@ -362,7 +363,9 @@ New submission
 ```
 - No need to correct his
 
-
+### Configuration
+- Added `configure`, `configure.ac`, `Makevars.in` and `Makevars.win` from `BoLi` branch of `RLOBICO`
+- Testing that the package still compiles
 
 
 
