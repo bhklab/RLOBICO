@@ -6,15 +6,15 @@
 #' test <- 2 +2
 #' test
 #'
-#' @param X A N x P binary matrix with N samples characterized by P binary features
-#' @param Y A N x 1 binary vector, which is the binarized version of the continuous output variable
-#' @param W A N x 1 continous vector with weights for each version of the continuous output variable
-#' @param K A model parameter
-#' @param M A model parameter
-#' @param lambda A model parameter
-#' @param sens The minimum sensitivity
-#' @param spec The minimum specificity
-#' @param addcons Some additional parameters
+#' @param X An N x P binary matrix with N samples characterized by P binary features
+#' @param Y An N x 1 binary vector, which is the binarized version of the continuous output variable
+#' @param W An N x 1 continuous vector with weights for each of the N samples
+#' @param K The number of disjunctive terms
+#' @param M The maximum number of selected features per disjunctive term
+#' @param lambda The regularizer of penalty for model complexity
+#' @param sens The constraints on minimum sensitivity 
+#' @param spec The constraints on minimum specificity
+#' @param addcons Some additional constraints 
 #' 
 #' @return What ever this function returns
 #' 
