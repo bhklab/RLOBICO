@@ -14,11 +14,11 @@ config_linux() {
 
 config_mac() {
   # Search from root for the required include directories from IBM ILOG CPLEX
-  CPLEX_INCLUDE="$(find / -regex '/Applications/.*/cplex/include')";
-  CONCERT_INCLUDE="$(find / -regex '.*/Applications/.*/concert/include')";
+  CPLEX_INCLUDE="$(find /Applications -regex '.*/cplex/include')";
+  CONCERT_INCLUDE="$(find /Applications -regex '.*/concert/include')";
   # Search from root for the required library files from IBL ILOG CPLEX
-  CPLEX_LIBS="$(find / -regex '/Applications/.*/cplex/lib/.*/static_pic')";
-  CONCERT_LIBS="$(find / -regex '/Applications/.*/concert/lib/.*/static_pic')";
+  CPLEX_LIBS="$(find /Applications -regex '.*/cplex/lib/.*/static_pic')";
+  CONCERT_LIBS="$(find /Applications -regex '.*/concert/lib/.*/static_pic')";
 }
 
 case "$OSTYPE" in
