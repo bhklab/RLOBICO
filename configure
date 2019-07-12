@@ -20,7 +20,9 @@ config_mac() {
   echo "CONCERT_INCLUDE: $CPLEX_INCLUDE";
   # Search from root for the required library files from IBL ILOG CPLEX
   CPLEX_LIBS="$(find /Applications -regex '.*/cplex/lib/.*/static_pic')";
+  echo "CPLEX_LIBS: $CPLEX_LIBS";
   CONCERT_LIBS="$(find /Applications -regex '.*/concert/lib/.*/static_pic')";
+  echo "CONCERT_LIBS: $CONCERT_LIBS";
 }
 
 case "$OSTYPE" in
@@ -34,7 +36,6 @@ case "$OSTYPE" in
     echo "Currently only supported on Unix and MacOS platforms"
     ;;
 esac
-
 
 # Write package flags to src/Makevars file
 # NOTE: This will overwrite any existing Makevars file; rename the file to avoid this
