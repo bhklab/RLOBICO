@@ -16,7 +16,7 @@ Description: Applies LOBICO model to large and complex datasets, formulates the
   functions are used as wrappers to call the C++ functions in the package. The 
   speed performance of our open source package is optimized by tuning relevant 
   parameters of Cplex Solver, which leads to better performance than the 
-  standard Matlab package from:
+  standard Matlab package; it is described in:
   Knijnenburg, T.A. et al (2016) <doi:10.1038/srep36812>.
 License: GPL-3
 Encoding: UTF-8

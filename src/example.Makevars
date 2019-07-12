@@ -1,6 +1,5 @@
 # OS Independent settings
 
-
 ## Uncomment the environmental variables for your OS
 ## We assume you are using the most recent CPLEX release (12.9)
 ## If the package does not comple, please double check the paths to your CPLEX installation
@@ -16,11 +15,11 @@ PKG_LIBS = -L$CPLEX_LIBS -L$CONCERT_LIBS -lilocplex -lconcert -lcplex -lm -lpthr
 #PKG_LIBS = -L/opt/ibm/ILOG/CPLEX_Studio129/cplex/lib/x86-64_linux/static_pic -L/opt/ibm/ILOG/CPLEX_Studio129/concert/lib/x86-64_linux/static_pic -lilocplex -lconcert -lcplex -lm -lpthread 
 
 # MacOS Variables
-#PKG_CPPFLAGS = -I/Applications/CPLEX_Studio128/cplex/include -I/Applications/CPLEX_Studio128/concert/include
-#PKG_LDFLAGS = -L/Applications/CPLEX_Studio128/cplex/lib/x86-64_osx/static_pic -L/Applications/CPLEX_Studio128/concert/lib/x86-64_osx/static_pic
-#PKG_LIBS = -L/Applications/CPLEX_Studio128/cplex/lib/x86-64_osx/static_pic -L/Applications/CPLEX_Studio128/concert/lib/x86-64_osx/static_pic -lilocplex -lconcert -lcplex -lm -lpthread 
+#PKG_CPPFLAGS = -I/Applications/CPLEX_Studio129/cplex/include -I/Applications/CPLEX_Studio129/concert/include
+#PKG_LDFLAGS = -L/Applications/CPLEX_Studio129/cplex/lib/x86-64_osx/static_pic -L/Applications/CPLEX_Studio129/concert/lib/x86-64_osx/static_pic
+#PKG_LIBS = -L/Applications/CPLEX_Studio129/cplex/lib/x86-64_osx/static_pic -L/Applications/CPLEX_Studio129/concert/lib/x86-64_osx/static_pic -lilocplex -lconcert -lcplex -lm -lpthread 
 
 # Windows Variables (Windows version not yet functional)
-#PKG_CPPFLAGS = -I"C:/IBM/ILOG/CPLEX_Studio128/cplex/include" -I"C:/IBM/ILOG/CPLEX_Studio128/concert/include"
-#PKG_LDFLAGS = -L"C:/IBM/ILOG/CPLEX_Studio128/cplex/lib/x64_windows_vs2017/stat_mda" -L"C:/IBM/ILOG/CPLEX_Studio128/concert/lib/x64_windows_vs2017/stat_mda"
-#PKG_LIBS = -L"C:/IBM/ILOG/CPLEX_Studio128/cplex/lib/x64_windows_vs2017/stat_mda" -L"C:/IBM/ILOG/CPLEX_Studio128/concert/lib/x64_windows_vs2017/stat_mda" -lilocplex -lconcert -lcplex -lm -lpthread
+#PKG_CPPFLAGS = -I"C:/IBM/ILOG/CPLEX_Studio129/cplex/include" -I"C:/IBM/ILOG/CPLEX_Studio129/concert/include"
+#PKG_LDFLAGS = -L"C:/IBM/ILOG/CPLEX_Studio129/cplex/lib/x64_windows_vs2017/stat_mda" -L"C:/IBM/ILOG/CPLEX_Studio129/concert/lib/x64_windows_vs2017/stat_mda"
+#PKG_LIBS = -L"C:/IBM/ILOG/CPLEX_Studio129/cplex/lib/x64_windows_vs2017/stat_mda" -L"C:/IBM/ILOG/CPLEX_Studio129/concert/lib/x64_windows_vs2017/stat_mda" -lilocplex -lconcert -lcplex1290 -lm -lpthread
