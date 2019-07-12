@@ -20,7 +20,7 @@ LazyData: true
 Depends: R (>= 3.6.0)
 Imports: Rcpp (>= 0.12.16), Matrix
 LinkingTo: Rcpp
-SystemRequirements: C++11, Rcpp, IBM ILOG CPLEX 12.9
+SystemRequirements: C++11, Rcpp, IBM ILOG CPLEX 12.9, GNU make
 RoxygenNote: 6.1.1
 Suggests: knitr, rmarkdown, devtools
 VignetteBuilder: knitr
