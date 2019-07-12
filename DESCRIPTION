@@ -3,17 +3,21 @@ Type: Package
 Title: Fast Logical Models Implemented with IBM CPLEX
 Version: 0.1.0
 Authors@R: c(
-  person("Li","Bo", email="li1033889482@gmail.com", role=c("aut")),
-  person("Ba-alawi", "Wail", email ="Wail.ba-alawi@uhnresearch.ca" , role=c("aut")),
-  person("Eeles","Christopher", email="christopher.eeles@uhnresearch.ca", role=c("aut")),
+  person("Bo","Li", email="li1033889482@gmail.com", role=c("aut")),
+  person("Wail", "Ba-alawi", email ="Wail.ba-alawi@uhnresearch.ca" , role=c("aut")),
+  person("Christopher","Eeles", email="christopher.eeles@uhnresearch.ca", role=c("aut")),
   person("Haibe-Kains","Benjamin", email = "benjamin.haibe.kains@utoronto.ca", role = c("aut","cre"))
   )
-Description: Applies LOBICO model to large and complex datasets, formulates the logic mapping as an integer 
-  linear programming problem (ILP), and uses the advanced ILP solvers (IBM ILOG Cplex) to find the optimal mapping. The 
-  package is developed using R and C++, where the logic mapping formulation and Cplex Solver are implemented as separate 
-  files by C++ for performance gain and R functions are used as wrappers to call the C++ functions in the package. The 
-  speed performance of our open source package is optimized by tuning relevant parameters of Cplex Solver, which leads 
-  to a better performance than the standard Matlab package.
+Description: Applies LOBICO model to large and complex datasets, formulates the 
+  logic mapping as an integer linear programming problem (ILP), and uses the 
+  advanced ILP solvers (IBM ILOG Cplex) to find the optimal mapping. The package
+  is developed using R and C++, where the logic mapping formulation and Cplex 
+  Solver are implemented as separate files by C++ for performance gain and R 
+  functions are used as wrappers to call the C++ functions in the package. The 
+  speed performance of our open source package is optimized by tuning relevant 
+  parameters of Cplex Solver, which leads to better performance than the 
+  standard Matlab package from:
+  Knijnenburg, T.A. et al (2016) <doi:10.1038/srep36812>.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
@@ -21,6 +25,7 @@ Depends: R (>= 3.6.0)
 Imports: Rcpp (>= 0.12.16), Matrix
 LinkingTo: Rcpp
 SystemRequirements: C++11, Rcpp, IBM ILOG CPLEX 12.9, GNU make
+OS_type: unix, mac
 RoxygenNote: 6.1.1
 Suggests: knitr, rmarkdown, devtools
 VignetteBuilder: knitr

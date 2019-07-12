@@ -4,35 +4,32 @@
 
 ## Installation
 
-1. Please install the IBM ILOG CPLEX Optimization Studio (v>=12.8.0). The academic version is highly recommended, large size problems (>1,000 variables, >1,000 equations) will not be solved under the community version. The exception "Bad promotional version, problem size exceeds limit" will be raised.
+1. Currently this package is only available on Unix and MacOS due to compatability
+issues between IBM ILOG CPLEX and the Windows RTools compiler. We are currently 
+trouble-shooting this issue and will update the README if any progress is made.
 
-2. Please modify the compiler and linker option to the paths of CPLEX libraries.
-   
-   For Linux users, in src/Makevars:
-   ```
-   PKG_CPPFLAGS = -I/path/to/CPLEX/cplex/include -I/path/to/CPLEX/concert/include
-   PKG_LDFLAGS = -L/path/to/CPLEX/cplex/lib/x86-64_linux/static_pic -L/path/to/CPLEX/concert/lib/x86-64_linux/static_pic
-   PKG_LIBS = -L/path/to/CPLEX/cplex/lib/x86-64_linux/static_pic -L/path/to/CPLEX/concert/lib/x86-64_linux/static_pic -lilocplex -lconcert -lcplex -lm -lpthread
-   ```
-   
-   For Mac users, in src/Makevars:
-   ```
-   PKG_CPPFLAGS = -I/path/to/CPLEX/cplex/include -I/path/to/CPLEX/concert/include
-   PKG_LDFLAGS = -L/path/to/CPLEX/cplex/lib/x86-64_osx/static_pic -L/path/to/CPLEX/concert/lib/x86-64_osx/static_pic
-   PKG_LIBS = -L/path/to/CPLEX/cplex/lib/x86-64_osx/static_pic -L/path/to/CPLEX/concert/lib/x86-64_osx/static_pic -lilocplex -lconcert -lcplex -lm -lpthread
-   ```
-   
-   For Windows users, please change the src/Makevars to src/Makevars.win, the modification of compiler and linker option is similar to the Mac or Linux.
-   
-3. The command below is recommended to build and install the package.
-   ```
-   R CMD INSTALL --preclean --no-multiarch --with-keep.source rlobico
-   ```
+2. Please install the IBM ILOG CPLEX Optimization Studio (v>=12.8.0). The 
+academic version is highly recommended, large size problems 
+(>1,000 variables, >1,000 equations) will not be solved under the community 
+version. The exception "Bad promotional version, problem size exceeds limit" 
+will be raised.
 
+3. The included configure script should be sufficient to locate your IBM ILOG
+CPLEX installation directory and create the `src/Makevars` file for your
+installation. If this process is unsuccessful we recommend deleting the configure
+script and manually creating a Makevars file. We have included `examples.Makevars`
+with the path and flags for the default installation locations on Ubuntu and 
+MacOS. If these do not work you will need find the appropriate directories and 
+set the package flags accordingly.
 
-## Test
+4. This package can be installed from GitHub with 
+`devtools::install_github("bhklab/RLOBICO", ref="RLOBICO_CRAN")`. We are also
+in the process of submitting to CRAN, after which the package will be available 
+using the standard `install.packages` function.
 
-We use the bibw2992 and an artificial dataset as test examples.
+## Example Data
+
+The BIBW2992 dataset is included in this package to power our examples and vignettes.
 
    
    

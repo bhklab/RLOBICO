@@ -1,0 +1,21 @@
+citHeader("The publication upon which RLOBICO is based:")
+
+citEntry(entry="article",
+    title = "Logic models to predict continuous outputs based on binary inputs 
+      with an application to personalized cancer therapy",
+    author = "Knijnenburg, T.A., Iori, F., Garnett, M.J., McDermot, U., 
+      Shmulevich, I., Wessels, L.F.A",
+    journal = "Scientific Reports",
+    year = "2016",
+    volume = "6",
+    pages = "",
+    textVersion = paste("Knijnenburg, T.A., Iori, F., Garnett, M.J., McDermot, U., 
+      Shmulevich, I., Wessels, L.F.A",
+      "Logic models to predict continuous outputs based on binary inputs with 
+        an application to personalized cancer therapy",
+      "Scientific Reports (2016) <doi:10.1038/srep36812>")
+    )
+
+citFooter("Our laboratory is currently utilizing this package for our own analysis
+  pipelines.", "A publication of our own is forthcoming."
+    )

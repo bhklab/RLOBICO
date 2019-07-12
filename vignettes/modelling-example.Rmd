@@ -97,6 +97,8 @@ M <- 1
 ## CPLEX Options
 
 Notes about configuring the options for CPLEX and the use cases for each configuration.
+The `param` and `solve` parameters are excluded from the lobico function in this release,
+but support for these features will be added in future releases.
 
 ```{r Cplex Options}
 param <- rbind(list('tilim', 60000, 'MaxTime'), #Maximum time for IP )in seconds)
@@ -139,7 +141,7 @@ sol <- lobico(X = X,
 
 ## Validating Results
 
-Return and validate the results. 
+Return and validate the results.
 
 ```{r Checking Solution}
 ## Check solution
