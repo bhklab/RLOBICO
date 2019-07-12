@@ -3,8 +3,10 @@
 # Please note there will be a large number of 'Permission denied' messages on install
 # This does not mean the installation has failed; this is simply because configure scripts can't be run as sudo
 
+# Configure the package flags for Unix based distributions
 config_linux() {
-  echo "Searching for your CPLEX installation... This may take some time."
+  echo "Searching for your CPLEX installation... This may take some time.\n"
+  echo "'Permissions denied' warnings should be ignored."
   # Search from root for the required include directories from IBM ILOG CPLEX
   CPLEX_INCLUDE="$(find / -regex '.*/cplex/include')";
   CONCERT_INCLUDE="$(find / -regex '.*/concert/include')";
@@ -13,6 +15,7 @@ config_linux() {
   CONCERT_LIBS="$(find / -regex '.*/concert/lib/.*/static_pic')";
 }
 
+# Configure the package flags for MacOS distributions
 config_mac() {
   echo "Searching for your CPLEX installation... This may take some time."
   # Search from root for the required include directories from IBM ILOG CPLEX
