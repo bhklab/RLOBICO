@@ -4,6 +4,7 @@
 # This does not mean the installation has failed; this is simply because configure scripts can't be run as sudo
 
 config_linux() {
+  echo "Searching for your CPLEX installation... This may take some time."
   # Search from root for the required include directories from IBM ILOG CPLEX
   CPLEX_INCLUDE="$(find / -regex '.*/cplex/include')";
   CONCERT_INCLUDE="$(find / -regex '.*/concert/include')";
@@ -13,6 +14,7 @@ config_linux() {
 }
 
 config_mac() {
+  echo "Searching for your CPLEX installation... This may take some time."
   # Search from root for the required include directories from IBM ILOG CPLEX
   CPLEX_INCLUDE="$(find /Applications -regex '.*/cplex/include')";
   echo "CPLEX_INCLUDE: $CPLEX_INCLUDE";
