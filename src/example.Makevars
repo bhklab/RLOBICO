@@ -4,11 +4,6 @@
 ## We assume you are using the most recent CPLEX release (12.9)
 ## If the package does not comple, please double check the paths to your CPLEX installation
 
-PKG_CXXFLAGS= -DIL_STD
-PKG_CPPFLAGS = -I$CPLEX_INCLUDE -I$CONCERT_INCLUDE
-PKG_LDFLAGS = -L$CPLEX_LIBS -L$CONCERT_LIBS
-PKG_LIBS = -L$CPLEX_LIBS -L$CONCERT_LIBS -lilocplex -lconcert -lcplex -lm -lpthread 
-
 # Ubuntu/Debian Variables
 #PKG_CPPFLAGS = -I/opt/ibm/ILOG/CPLEX_Studio129/cplex/include -I/opt/ibm/ILOG/CPLEX_Studio129/concert/include
 #PKG_LDFLAGS = -L/opt/ibm/ILOG/CPLEX_Studio129/cplex/lib/x86-64_linux/static_pic -L/opt/ibm/ILOG/CPLEX_Studio129/concert/lib/x86-64_linux/static_pic

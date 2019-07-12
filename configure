@@ -1,15 +1,35 @@
-#!/bin/sh
+#!/bin/bash
 
 # Please note there will be a large number of 'Permission denied' messages on install
 # This does not mean the installation has failed; this is simply because configure scripts can't be run as sudo
 
-# Search from root for the required include directories from IBM ILOG CPLEX
-CPLEX_INCLUDE=$(find / -regex '.*/cplex/include');
-CONCERT_INCLUDE=$(find / -regex '.*/concert/include');
+config_linux() {
+  # Search from root for the required include directories from IBM ILOG CPLEX
+  CPLEX_INCLUDE="$(find / -regex '.*/cplex/include')";
+  CONCERT_INCLUDE="$(find / -regex '.*/concert/include')";
+  # Search from root for the required library files from IBL ILOG CPLEX
+  CPLEX_LIBS="$(find / -regex '.*/cplex/lib/.*/static_pic')";
+  CONCERT_LIBS="$(find / -regex '.*/concert/lib/.*/static_pic')";
+}
 
-# Search from root for the required library files from IBL ILOG CPLEX
-CPLEX_LIBS=$(find / -regex '.*/cplex/lib/.*/static_pic');
-CONCERT_LIBS=$(find / -regex '.*/concert/lib/.*/static_pic');
+config_mac() {
+  # Search from root for the required include directories from IBM ILOG CPLEX
+  CPLEX_INCLUDE="$(find -regex '.*/Applications/.*/cplex/include')";
+  CONCERT_INCLUDE="$(find -regex '.*/Applications/.*/concert/include')";
+  # Search from root for the required library files from IBL ILOG CPLEX
+  CPLEX_LIBS="$(find /Applications -regex '.*/Applications/.*/cplex/lib/.*/static_pic')";
+  CONCERT_LIBS="$(find /Applications -regex '.*/Applications/.*/concert/lib/.*/static_pic')";
+}
+
+case "$OSTYPE" in
+  solaris*|linux*|bsd*)
+    config_linux
+    ;;
+  darwin*) 
+    config_mac
+    ;;
+esac
+
 
 # Write package flags to src/Makevars file
 # NOTE: This will overwrite any existing Makevars file; rename the file to avoid this
