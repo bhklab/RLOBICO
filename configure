@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Please note there will be a large number of 'Permission denied' messages on install
-# This does not mean the installation has failed; this is simply because configure scripts can't run as sudo
+# This does not mean the installation has failed; this is simply because configure scripts can't be run as sudo
 
 # Search from root for the required include directories from IBM ILOG CPLEX
 CPLEX_INCLUDE=$(find / -regextype grep -regex '.*/cplex/include');
@@ -11,14 +11,9 @@ CONCERT_INCLUDE=$(find / -regextype grep -regex '.*/concert/include');
 CPLEX_LIBS=$(find / -regextype grep -regex '.*/cplex/lib/.*/static_pic$');
 CONCERT_LIBS=$(find / -regextype grep -regex '.*/concert/lib/.*/static_pic$');
 
-# Delete Makevars if it exists
-FILE=/src/Makevars
-if test -f "$FILE"; then  
-  rm src/Makevars;
-fi
-
 # Write package flags to src/Makevars file
-echo "PKG_CXXFLAGS= -DIL_STD" >> src/Makevars
+# NOTE: This will overwrite any existing Makevars file; rename the file to avoid this
+echo "PKG_CXXFLAGS= -DIL_STD" > src/Makevars
 echo "PKG_CPPFLAGS = -I$CPLEX_INCLUDE -I$CONCERT_INCLUDE" >> src/Makevars
 echo "PKG_LDFLAGS = -L$CPLEX_LIBS -L$CONCERT_LIBS" >> src/Makevars
 echo "PKG_LIBS = -L$CPLEX_LIBS -L$CONCERT_LIBS -lilocplex -lconcert -lcplex -lm -lpthread" >> src/Makevars
