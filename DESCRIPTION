@@ -6,7 +6,7 @@ Authors@R: c(
   person("Bo","Li", email="li1033889482@gmail.com", role=c("aut")),
   person("Wail", "Ba-alawi", email ="Wail.ba-alawi@uhnresearch.ca" , role=c("aut")),
   person("Christopher","Eeles", email="christopher.eeles@uhnresearch.ca", role=c("aut")),
-  person("Haibe-Kains","Benjamin", email = "benjamin.haibe.kains@utoronto.ca", role = c("aut","cre"))
+  person("Benjamin","Haibe-Kains", email = "benjamin.haibe.kains@utoronto.ca", role = c("aut","cre"))
   )
 Description: Applies LOBICO model to large and complex datasets, formulates the 
   logic mapping as an integer linear programming problem (ILP), and uses the 

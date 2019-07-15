@@ -1,34 +1,272 @@
 #!/bin/bash
 
-# Please note there will be a large number of 'Permission denied' messages on install
-# This does not mean the installation has failed; this is simply because configure scripts can't be run as sudo
 
-# Configure the package flags for Unix based distributions
+#####################################################
+### CONFIGURATION SCRIPT FOR RLOBICO INSTALLATION ###
+#####################################################
+
+####TO-DO:: Add check for existing environmental variables on system!
+
+
+##
+## SHARED HELPER FUNCTIONS
+##
+
+
+# Path search function
+#
+# A wrapper for find shell command
+#
+# $1 is directory to begin search form
+# $2 is the name of the target file or directory
+#
+# Returns path to the target as a string
+#
+path_search() {
+  echo "$(find $1 -regex '.*/'$2'')";
+}
+
+
+# Configures CPLEX paths
+#
+# Sets a variable for each CPLEX path required for RLOBICO to compile
+#
+config_cplex() {
+  
+  echo "Searching for include and libs directories..."
+  # Search from $CPLEX_HOME for the required include directories from IBM ILOG CPLEX
+  CPLEX_INCLUDE="$(path_search $CPLEX_HOME cplex/include)";
+  if [ -z "$CPLEX_INCLUDE" ] 
+  then 
+    echo "Can't find cplex/include directory!"; 
+    exit 1;
+  else
+    echo "CPLEX_INCLUDE found at $CPLEX_INCLUDE"; 
+  fi
+  
+  CONCERT_INCLUDE="$(path_search $CPLEX_HOME concert/include)";
+  if [ -z "$CONCERT_INCLUDE" ] 
+  then 
+    echo "Can't find cplex/include directory!"; 
+    exit 1;
+  else
+    echo "CONCERT_INCLUDE found at $CONCERT_INCLUDE";
+  fi
+
+  # Search from $CPLEX_HOME for the required library files from IBL ILOG CPLEX
+  CPLEX_LIBS="$(path_search $CPLEX_HOME cplex/lib/.*/static_pic)";
+  if [ -z "$CPLEX_LIBS" ] 
+  then 
+    echo "Can't find cplex/include directory!"; 
+    exit 1;
+  else
+    echo "CPLEX_LIBS found at $CPLEX_LIBS";
+  fi
+  
+  CONCERT_LIBS="$(path_search $CPLEX_HOME concert/lib/.*/static_pic)";
+  if [ -z "$CONCERT_LIBS" ] 
+  then 
+    echo "Can't find cplex/include directory!"; 
+    exit 1; 
+  else
+    echo "CONCERT_LIBS found at $CONCERT_LIBS";
+  fi
+}
+
+
+
+##
+## LINUX HELPER FUNCTIONS
+##
+
+
+# CPLEX_HOME search logic
+# 
+# Finds CPLEX installation directory for Linux machines and assigns to $CPLEX_HOME global var
+#
+find_linux_cplex_path() {
+    echo "Searching for your CPLEX installation..."
+    
+    # This is currently not working
+    #if [ !-z "$CPLEX_HOME"]
+    #then
+    #  echo "Environmental variable already set!";
+    #  echo "CPLEX_HOME found at $CPLEX_HOME";
+    #  return;
+    #fi
+
+    # Searching in user's bin directory
+    if [ -z "$CPLEX_HOME" ]
+    then 
+      echo "Checking user directory...";
+      CPLEX_HOME="$(path_search $HOME/bin 'CPLEX_Studio12.')";
+    else
+      echo "CPLEX_HOME found at $CPLEX_HOME";
+      return;
+    fi
+    
+    # Searching opt directory
+    if [ -z "$CPLEX_HOME" ]
+    then
+      echo "Checking /opt directory...";
+      CPLEX_HOME="$( path_search /opt 'CPLEX_Studio12.' )";  
+    else
+      echo "CPLEX_HOME found at $CPLEX_HOME";
+      return;
+    fi
+
+    # Searching bin directory
+    if [ -z "$CPLEX_HOME" ]
+    then
+      echo "Searching /bin directory...";
+      CPLEX_HOME="$( path_search /bin 'CPLEX_Studio12.' )"; 
+    else
+      echo "CPLEX_HOME found at $CPLEX_HOME";
+      return;
+    fi
+
+    # Searching usr/bin directory
+    if [ -z "$CPLEX_HOME" ]
+    then
+      echo "Searching /bin directory...";
+      CPLEX_HOME="$( path_search /usr/bin CPLEX_Studio12. )"; 
+    else
+      echo "CPLEX_HOME found at $CPLEX_HOME";
+      return;
+    fi
+
+    # Searching entire user directory
+    if [ -z "$CPLEX_HOME" ]
+    then
+      echo "Checking user's entire home directory... This may take a while!";
+      CPLEX_HOME="$( path_search $HOME CPLEX_Studio12. )";
+   else
+      echo "CPLEX_HOME found at $CPLEX_HOME";
+      return;
+    fi
+  
+    # Searching from root directory
+    if [ -z "$CPLEX_HOME" ]
+    then
+      echo "Searching root directory... This can take up to 30 minutes!";
+      CPLEX_HOME="$( path_search / CPLEX_Studio12. )"; 
+    else
+      echo "CPLEX_HOME found at $CPLEX_HOME";
+      return;
+    fi
+
+    # Ensuring function worked correctly
+    if [ -z "$CPLEX_HOME" ]
+    then
+      echo "Can't find CPLEX install directory";
+      echo "Please try manual configuration (See example_Makevars in src directory)"
+      exit 1;
+    fi
+}
+
+
+# Configuration for Linux distros
+#
+# Finds the directories to the paths required for CPLEX operation and assigns to global variables
+#
 config_linux() {
-  echo "Searching for your CPLEX installation... This may take some time.\n"
-  echo "'Permissions denied' warnings should be ignored."
-  # Search from root for the required include directories from IBM ILOG CPLEX
-  CPLEX_INCLUDE="$(find / -regex '.*/cplex/include')";
-  CONCERT_INCLUDE="$(find / -regex '.*/concert/include')";
-  # Search from root for the required library files from IBL ILOG CPLEX
-  CPLEX_LIBS="$(find / -regex '.*/cplex/lib/.*/static_pic')";
-  CONCERT_LIBS="$(find / -regex '.*/concert/lib/.*/static_pic')";
+  
+  # Get $CPLEX_HOME variable
+  find_linux_cplex_path;
+
+  # Set include and libs path for both cplex and concert
+  config_cplex;
 }
 
-# Configure the package flags for MacOS distributions
-config_mac() {
-  echo "Searching for your CPLEX installation... This may take some time."
-  # Search from root for the required include directories from IBM ILOG CPLEX
-  CPLEX_INCLUDE="$(find /Applications -regex '.*/cplex/include')";
-  echo "CPLEX_INCLUDE: $CPLEX_INCLUDE";
-  CONCERT_INCLUDE="$(find /Applications -regex '.*/concert/include')";
-  echo "CONCERT_INCLUDE: $CPLEX_INCLUDE";
-  # Search from root for the required library files from IBL ILOG CPLEX
-  CPLEX_LIBS="$(find /Applications -regex '.*/cplex/lib/.*/static_pic')";
-  echo "CPLEX_LIBS: $CPLEX_LIBS";
-  CONCERT_LIBS="$(find /Applications -regex '.*/concert/lib/.*/static_pic')";
-  echo "CONCERT_LIBS: $CONCERT_LIBS";
+
+
+##
+## MACOS HELPER FUNCTIONS
+##
+
+# CPLEX_HOME search logic
+# 
+# Finds CPLEX installation directory for MacOS machines and assigns to $CPLEX_HOME global var
+#
+find_mac_cplex_path() {
+
+    # Currently not working
+    #echo "Searching for your CPLEX installation..."
+    #if [ !-z "$CPLEX_HOME" ]
+    #then
+    #  echo "Environmental variable already set!";
+    #  echo "CPLEX_HOME found at $CPLEX_HOME";
+    #  return;
+    #fi
+
+    # Searching in user's Application directory
+    if [ -z "$CPLEX_HOME" ]
+    then
+      echo "Checking user's Applications directory...";
+      CPLEX_HOME="$( path_search $HOME/Applications CPLEX_Studio12. )";
+    else
+      echo "CPLEX_HOME found at $CPLEX_HOME";
+      return;
+    fi
+    
+    # Searching root Applications directory
+    if [ -z "$CPLEX_HOME" ]
+    then
+      echo "Checking /Applications directory...";
+      CPLEX_HOME="$( path_search /opt CPLEX_Studio12. )";  
+    else
+      echo "CPLEX_HOME found at $CPLEX_HOME";
+      return;
+    fi
+
+    # Searching entire user directory
+    if [ -z "$CPLEX_HOME" ]
+    then
+      echo "Searching user's home directory...";
+      CPLEX_HOME="$( path_search $HOME CPLEX_Studio12. )"; 
+    else
+      echo "CPLEX_HOME found at $CPLEX_HOME";
+      return;
+    fi
+
+    # Searching entire root directory
+    if [ -z "$CPLEX_HOME" ]
+    then
+      echo "Searching entire root directory... This can take up to 30 minutes!";
+      CPLEX_HOME="$( path_search / CPLEX_Studio12. )"; 
+    else
+      echo "CPLEX_HOME found at $CPLEX_HOME";
+      return;
+    fi
+
+    # Ensuring function worked
+    if [ -z "$CPLEX_HOME" ]
+    then
+      echo "Can't find CPLEX install directory";
+      echo "Please try manual configuration (See example_Makevars in src directory)"
+      exit 1;
+    fi
 }
+
+# Configuration for MacOS distros
+#
+# Finds the directories to the paths required for CPLEX operation and assigns to global variables
+#
+config_mac() {
+
+  # Get $CPLEX_HOME variable
+  find_mac_cplex_path; 
+
+  # Set include and libs path for both cplex and concert
+  config_cplex;
+
+}
+
+
+##
+## OS DETECTION AND CONFIGURATION CALLS
+##
+
 
 case "$OSTYPE" in
   solaris*|linux*|bsd*)
@@ -38,9 +276,18 @@ case "$OSTYPE" in
     config_mac
     ;;
   *)
-    echo "Currently only supported on Unix and MacOS platforms"
+    echo "Currently only supported on Linux and MacOS platforms.";
+    exit 1;
     ;;
 esac
+
+
+##
+## Makevars FILE ASSEMBLY/OUTPUT
+##
+
+echo "Configuration successful!"
+echo "Writing Makevars file to /src directory..."
 
 # Write package flags to src/Makevars file
 # NOTE: This will overwrite any existing Makevars file; rename the file to avoid this
@@ -48,6 +295,8 @@ echo "PKG_CXXFLAGS= -DIL_STD" > src/Makevars
 echo "PKG_CPPFLAGS = -I$CPLEX_INCLUDE -I$CONCERT_INCLUDE" >> src/Makevars
 echo "PKG_LDFLAGS = -L$CPLEX_LIBS -L$CONCERT_LIBS" >> src/Makevars
 echo "PKG_LIBS = -L$CPLEX_LIBS -L$CONCERT_LIBS -lilocplex -lconcert -lcplex -lm -lpthread" >> src/Makevars
+
+echo "Configuration complete!"
 
 # Exit as success
 exit 0;
