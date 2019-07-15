@@ -208,11 +208,21 @@ find_mac_cplex_path() {
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
     fi
+
+    # Searching root Applications directory for CPLEX
+    if [ -z "$CPLEX_HOME" ]
+    then
+      echo "Checking top levels of /Applications directory...";
+      CPLEX_HOME="$( find /Applications -maxdepth 1 -regex CPLEX_Studio12. )";  
+    else
+      echo "CPLEX_HOME found at $CPLEX_HOME";
+      return;
+    fi
     
     # Searching root Applications directory
     if [ -z "$CPLEX_HOME" ]
     then
-      echo "Checking /Applications directory...";
+      echo "Checking /Applications entire directory... This may take a while!";
       CPLEX_HOME="$( path_search /Applications CPLEX_Studio12. )";  
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
@@ -222,7 +232,7 @@ find_mac_cplex_path() {
     # Searching entire user directory
     if [ -z "$CPLEX_HOME" ]
     then
-      echo "Searching user's home directory...";
+      echo "Searching user's home directory... This may take a while!";
       CPLEX_HOME="$( path_search $HOME CPLEX_Studio12. )"; 
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
