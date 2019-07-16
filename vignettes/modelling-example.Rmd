@@ -14,42 +14,42 @@ vignette: >
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, tidy=TRUE)
 require(devtools)
 ```
 
 ## Introduction
 
 R-LOBICO is an R package that aims to provide implementations of several logical
-models algorithms. In the field of cancer biomarker discovery, where models 
+modelling algorithms. In the field of cancer biomarker discovery, where models 
 suffer from high dimensionality of the molecular data and the low number of 
 samples, single predictor models are in general not accurate enough, reflecting 
 the importance of acknowledging the interaction between biological features. On 
 the other hand, some machine learning approaches produce complex multi-predictor 
 models that are more accurate but hard to interpret and not amenable to the 
-generation of hypotheses. Logical models satisfies the urgent need for 
-approaches that builds small, interpretable, yet accurate models which capture 
+generation of hypotheses. Logical models satisfy the urgent need for 
+approaches that build small, interpretable, yet accurate models which capture 
 the interplay between biological features. LOBICO, namely Logic Optimization for
 Binary Input to Continuous Output, is one computational approach that was 
 applied on a large pharmacogenomic dataset to find robust candidate biomarkers. 
 The package applies LOBICO model to large and complex datasets, formulates the 
 logic mapping as an integer linear programming problem (ILP), and uses the 
-advanced ILP solvers (IBM ILOG Cplex) to find the optimal mapping.
+advanced ILP solvers (IBM ILOG CPLEX) to find the optimal mapping.
 
 ## Installing the Package
 
 Please note that installation of this file depends on the package Rcpp to 
 compile the C code. Additionally, to use the package and its function you must 
-have a working installation of IBM ILOG CPLEX 12.9
+have a working installation of IBM ILOG CPLEX 12.9.
 
-```{r Installation}
+```{r Installation, include=FALSE}
 library(devtools)
-devtools::install_github("bhklab/RLOBICO", ref="RLOBICO_CRAN")
+devtools::install_github("bhklab/RLOBICO")
 library(rlobico)
 ```
 
 ## Data Loading
-  
+
 Load the real data example. In this example we load the responses of applying 
 bibw2992 drug in pharmacogenomic datasets.
 
