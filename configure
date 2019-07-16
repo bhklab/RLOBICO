@@ -99,7 +99,7 @@ find_linux_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then 
       echo "Checking user directory...";
-      CPLEX_HOME="$(path_search $HOME/bin CPLEX_Studio12.)";
+      CPLEX_HOME="$(path_search $HOME/bin CPLEX_Studio12.?.?? )";
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -109,7 +109,7 @@ find_linux_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Checking /opt directory...";
-      CPLEX_HOME="$( path_search /opt CPLEX_Studio12. )";  
+      CPLEX_HOME="$( path_search /opt CPLEX_Studio12.?.?? )";  
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -119,7 +119,7 @@ find_linux_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Searching /bin directory...";
-      CPLEX_HOME="$( path_search /bin CPLEX_Studio12. )"; 
+      CPLEX_HOME="$( path_search /bin CPLEX_Studio12.?.?? )"; 
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -129,7 +129,7 @@ find_linux_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Searching /bin directory...";
-      CPLEX_HOME="$( path_search /usr/bin CPLEX_Studio12. )"; 
+      CPLEX_HOME="$( path_search /usr/bin CPLEX_Studio12.?.?? )"; 
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -139,7 +139,7 @@ find_linux_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Checking user's entire home directory... This may take a while!";
-      CPLEX_HOME="$( path_search $HOME CPLEX_Studio12. )";
+      CPLEX_HOME="$( path_search $HOME CPLEX_Studio12.?.?? )";
    else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -149,7 +149,7 @@ find_linux_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Searching root directory... This can take up to 30 minutes!";
-      CPLEX_HOME="$( path_search / CPLEX_Studio12. )"; 
+      CPLEX_HOME="$( path_search / CPLEX_Studio12.?.?? )"; 
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -203,7 +203,7 @@ find_mac_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Checking user's Applications directory...";
-      CPLEX_HOME="$( path_search $HOME/Applications CPLEX_Studio12. )";
+      CPLEX_HOME="$( path_search $HOME/Applications CPLEX_Studio12.?.?? )";
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -213,7 +213,7 @@ find_mac_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Checking top levels of /Applications directory...";
-      CPLEX_HOME="$( find /Applications -maxdepth 2 -regex '.*/CPLEX_Studio12.' )";
+      CPLEX_HOME="$( find /Applications -maxdepth 2 -regex '.*/CPLEX_Studio12.?.??' )";
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -223,7 +223,7 @@ find_mac_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Checking /Applications entire directory... This may take a while!";
-      CPLEX_HOME="$( path_search /Applications CPLEX_Studio12. )";  
+      CPLEX_HOME="$( path_search /Applications CPLEX_Studio12.?.?? )";  
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -233,7 +233,7 @@ find_mac_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Searching user's home directory... This may take a while!";
-      CPLEX_HOME="$( path_search $HOME CPLEX_Studio12. )"; 
+      CPLEX_HOME="$( path_search $HOME CPLEX_Studio12.?.?? )"; 
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -243,7 +243,7 @@ find_mac_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Searching entire root directory... This can take up to 30 minutes!";
-      CPLEX_HOME="$( path_search / CPLEX_Studio12. )"; 
+      CPLEX_HOME="$( path_search / CPLEX_Studio12.?.?? )"; 
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
