@@ -220,7 +220,7 @@ find_mac_cplex_path() {
       return;
     fi
 
-    # Searching first four levels of Applications directory
+    # Searching first five levels of Applications directory
     if [ -z "$CPLEX_HOME" ]
     then
       CPLEX_HOME="$( path_search /Applications CPLEX_Studio.?.?? '-maxdepth 5' )";
@@ -229,7 +229,7 @@ find_mac_cplex_path() {
       return;
     fi
 
-    # Searching first four levels of Applications directory
+    # Searching first seven levels of Applications directory
     if [ -z "$CPLEX_HOME" ]
     then
       CPLEX_HOME="$( path_search /Applications CPLEX_Studio.?.?? '-maxdepth 7' )";
