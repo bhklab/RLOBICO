@@ -51,3 +51,19 @@ using the standard `install.packages` function.
 ## Example Data
 
 The BIBW2992 dataset is included in this package to power our examples and vignettes.
+
+## Trouble Shooting
+
+1. If you receive errors related to missing `.h` files, this is likely due to use
+    of an incompatible C compiler. We recommend using a recent version of g++,
+    specifically one that supports gnu++11 or c++11. Although this compiler should
+    be the default on linux machines, if it is not you can download and install
+    it using `sudo apt install`. On MacOS we recommend using Xcode's command
+    line tools; installation instructions can be found [here](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/).
+    
+2. If the configure script is unable to locate your CPLEX installation, and you
+    do not wish to manually configure your `Makevars` file from `example.Makevars`,
+    you can uninstall CPLEX, redownload it as listed above, and install it to the
+    DEFAULT directory suggested by the installer. This should resolve the issue.
+    If it does not please check the version of your CPLEX install as well as other
+    system dependencies listed in `DESCRIPTION`
