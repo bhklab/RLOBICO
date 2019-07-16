@@ -19,6 +19,7 @@
 #
 # $1 is directory to begin search form
 # $2 is the name of the target file or directory
+# $3 is any additional arguements needed for find
 #
 # Returns path to the target as a string
 #
