@@ -23,7 +23,7 @@
 # Returns path to the target as a string
 #
 path_search() {
-  echo "$(find $1 -regex '.*/'$2'')";
+  echo "$(find $1 $3 -regex '.*/'$2'')";
 }
 
 
@@ -33,7 +33,7 @@ path_search() {
 #
 config_cplex() {
   
-  echo "Searching for include and libs directories..."
+  echo "Searching for include and lib directories..."
   # Search from $CPLEX_HOME for the required include directories from IBM ILOG CPLEX
   CPLEX_INCLUDE="$(path_search $CPLEX_HOME cplex/include)";
   if [ -z "$CPLEX_INCLUDE" ] 
@@ -54,22 +54,22 @@ config_cplex() {
   fi
 
   # Search from $CPLEX_HOME for the required library files from IBL ILOG CPLEX
-  CPLEX_LIBS="$(path_search $CPLEX_HOME cplex/lib/.*/static_pic)";
-  if [ -z "$CPLEX_LIBS" ] 
+  CPLEX_LIB="$(path_search $CPLEX_HOME cplex/lib/.*/static_pic)";
+  if [ -z "$CPLEX_LIB" ] 
   then 
     echo "Can't find cplex/include directory!"; 
     exit 1;
   else
-    echo "CPLEX_LIBS found at $CPLEX_LIBS";
+    echo "CPLEX_LIB found at $CPLEX_LIB";
   fi
   
-  CONCERT_LIBS="$(path_search $CPLEX_HOME concert/lib/.*/static_pic)";
-  if [ -z "$CONCERT_LIBS" ] 
+  CONCERT_LIB="$(path_search $CPLEX_HOME concert/lib/.*/static_pic)";
+  if [ -z "$CONCERT_LIB" ] 
   then 
     echo "Can't find cplex/include directory!"; 
     exit 1; 
   else
-    echo "CONCERT_LIBS found at $CONCERT_LIBS";
+    echo "CONCERT_LIB found at $CONCERT_LIB";
   fi
 }
 
@@ -174,7 +174,7 @@ config_linux() {
   # Get $CPLEX_HOME variable
   find_linux_cplex_path;
 
-  # Set include and libs path for both cplex and concert
+  # Set include and lib path for both cplex and concert
   config_cplex;
 }
 
@@ -267,7 +267,7 @@ config_mac() {
   # Get $CPLEX_HOME variable
   find_mac_cplex_path; 
 
-  # Set include and libs path for both cplex and concert
+  # Set include and lib path for both cplex and concert
   config_cplex;
 
 }
@@ -277,7 +277,10 @@ config_mac() {
 ## OS DETECTION AND CONFIGURATION CALLS
 ##
 
-
+# OS Detection
+# 
+# Determines users OS system and runs the appropriate configuration script
+#
 case "$OSTYPE" in
   solaris*|linux*|bsd*)
     config_linux
@@ -293,7 +296,7 @@ esac
 
 
 ##
-## Makevars FILE ASSEMBLY/OUTPUT
+## 'Makevars' FILE ASSEMBLY/OUTPUT
 ##
 
 echo "Configuration successful!"
@@ -303,8 +306,8 @@ echo "Writing Makevars file to /src directory..."
 # NOTE: This will overwrite any existing Makevars file; rename the file to avoid this
 echo "PKG_CXXFLAGS= -DIL_STD" > src/Makevars
 echo "PKG_CPPFLAGS = -I$CPLEX_INCLUDE -I$CONCERT_INCLUDE" >> src/Makevars
-echo "PKG_LDFLAGS = -L$CPLEX_LIBS -L$CONCERT_LIBS" >> src/Makevars
-echo "PKG_LIBS = -L$CPLEX_LIBS -L$CONCERT_LIBS -lilocplex -lconcert -lcplex -lm -lpthread" >> src/Makevars
+echo "PKG_LDFLAGS = -L$CPLEX_LIB -L$CONCERT_LIB" >> src/Makevars
+echo "PKG_LIBS = -L$CPLEX_LIB -L$CONCERT_LIB -lilocplex -lconcert -lcplex -lm -lpthread" >> src/Makevars
 
 echo "Configuration complete!"
 
