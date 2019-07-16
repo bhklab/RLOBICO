@@ -12,7 +12,7 @@
 #' @param spec The constraints on minimum specificity
 #' @param addcons Some additional constraints 
 #'
-#' @return Whate ver this function returns
+#' @return The list of arguments for Cplex Solver (The formulated logic model)
 #'
 #' @importFrom Matrix sparseMatrix
 #'

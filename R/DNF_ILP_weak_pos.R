@@ -14,7 +14,7 @@
 #'
 #' @importFrom Matrix sparseMatrix
 #' 
-#' @return What ever this function returns (a logical model)?
+#' @return The list of arguments for Cplex Solver (The formulated logic model)
 #'
 DNF_ILP_weak_pos <- function(X, Y, W, K, M, lambda, sens, spec, addcons) {
   

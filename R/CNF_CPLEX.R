@@ -12,7 +12,7 @@
 #' @param spec The constraints on minimum specificity
 #' @param addcons Some additional constraints 
 #'
-#' @return What ever this function returns
+#' @return The list of arguments for Cplex Solver (The formulated logic model)
 #'
 CNF_CPLEX <- function(X, Y, W, K, M, lambda, sens, spec, addcons) {
  
