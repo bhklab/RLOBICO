@@ -204,7 +204,7 @@ find_mac_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Checking user's Applications directory...";
-      CPLEX_HOME="$( path_search $HOME/Applications CPLEX_Studio12.\{1,2\} )";
+      CPLEX_HOME="$( find $HOME/Applications -regex 'CPLEX_Studio12.\{1,2\}' )";
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -214,7 +214,7 @@ find_mac_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Checking top levels of /Applications directory...";
-      CPLEX_HOME="$( path_search /Applications CPLEX_Studio.\{1,2\} '-maxdepth 2' )";
+      CPLEX_HOME="$( find /Applications -regex 'CPLEX_Studio12.\{1,2\}' -maxdepth 2 )";
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -223,7 +223,7 @@ find_mac_cplex_path() {
     # Searching first four levels of Applications directory
     if [ -z "$CPLEX_HOME" ]
     then
-      CPLEX_HOME="$( path_search /Applications CPLEX_Studio.\{1,2\} '-maxdepth 4' )";
+      CPLEX_HOME="$( find /Applications -regex 'CPLEX_Studio12.\{1,2\}' -maxdepth 4 )";
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -233,7 +233,7 @@ find_mac_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Checking /Applications entire directory... This may take a while!";
-      CPLEX_HOME="$( path_search /Applications CPLEX_Studio12.\{1,2\} )";  
+      CPLEX_HOME="$( find /Applications -regex 'CPLEX_Studio12.\{1,2\}' )";  
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -243,7 +243,7 @@ find_mac_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Searching user's home directory... This may take a while!";
-      CPLEX_HOME="$( path_search $HOME CPLEX_Studio12.\{1,2\} )"; 
+      CPLEX_HOME="$( find $HOME -regex 'CPLEX_Studio12.\{1,2\}' )"; 
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -253,7 +253,7 @@ find_mac_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Searching entire root directory... This can take up to 30 minutes!";
-      CPLEX_HOME="$( path_search / CPLEX_Studio12.\{1,2\} )"; 
+      CPLEX_HOME="$( find / -regex 'CPLEX_Studio12.\{1,2\}' )"; 
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
