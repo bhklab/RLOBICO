@@ -1,10 +1,10 @@
 ## ----setup, include=FALSE------------------------------------------------
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, tidy=TRUE)
 require(devtools)
 
-## ----Installation--------------------------------------------------------
+## ----Installation, include=FALSE-----------------------------------------
 library(devtools)
-devtools::install_github("bhklab/RLOBICO", ref="RLOBICO_CRAN")
+devtools::install_github("bhklab/RLOBICO", build_vignettes=TRUE)
 library(rlobico)
 
 ## ----dataLoading---------------------------------------------------------

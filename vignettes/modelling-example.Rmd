@@ -44,7 +44,7 @@ have a working installation of IBM ILOG CPLEX 12.9.
 
 ```{r Installation, include=FALSE}
 library(devtools)
-devtools::install_github("bhklab/RLOBICO")
+devtools::install_github("bhklab/RLOBICO", build_vignettes=TRUE)
 library(rlobico)
 ```
 
