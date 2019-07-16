@@ -94,7 +94,7 @@ find_linux_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Checking /opt directory...";
-      CPLEX_HOME="$( find /opt '.*/CPLEX_Studio12.?.??' )";  
+      CPLEX_HOME="$( find /opt -regex '.*/CPLEX_Studio12.?.??' )";  
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -104,7 +104,7 @@ find_linux_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Searching /bin directory...";
-      CPLEX_HOME="$( find /bin '.*/CPLEX_Studio12.?.??' -maxdepth 2 )"; 
+      CPLEX_HOME="$( find /bin -regex '.*/CPLEX_Studio12.?.??' -maxdepth 2 )"; 
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -113,7 +113,7 @@ find_linux_cplex_path() {
     # Searching top four levels of bin directory
     if [ -z "$CPLEX_HOME" ]
     then
-      CPLEX_HOME="$( find /bin '.*/CPLEX_Studio12.?.??' -maxdepth 4 )"; 
+      CPLEX_HOME="$( find /bin -regex '.*/CPLEX_Studio12.?.??' -maxdepth 4 )"; 
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -123,7 +123,7 @@ find_linux_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Searching entire /bin directory... This may take a while."
-      CPLEX_HOME="$( find /bin '.*/CPLEX_Studio12.?.??' )"; 
+      CPLEX_HOME="$( find /bin -regex '.*/CPLEX_Studio12.?.??' )"; 
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -133,7 +133,7 @@ find_linux_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Searching /bin directory...";
-      CPLEX_HOME="$( find /usr/bin '.*/CPLEX_Studio12.?.??' )"; 
+      CPLEX_HOME="$( find /usr/bin -regex '.*/CPLEX_Studio12.?.??' )"; 
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -143,7 +143,7 @@ find_linux_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Checking user's entire home directory... This may take a while!";
-      CPLEX_HOME="$( find $HOME '.*/CPLEX_Studio12.?.??' )";
+      CPLEX_HOME="$( find $HOME -regex '.*/CPLEX_Studio12.?.??' )";
    else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
@@ -153,7 +153,7 @@ find_linux_cplex_path() {
     if [ -z "$CPLEX_HOME" ]
     then
       echo "Searching root directory... This can take up to 30 minutes!";
-      CPLEX_HOME="$( find / '.*/CPLEX_Studio12.?.??' )"; 
+      CPLEX_HOME="$( find / -regex '.*/CPLEX_Studio12.?.??' )"; 
     else
       echo "CPLEX_HOME found at $CPLEX_HOME";
       return;
